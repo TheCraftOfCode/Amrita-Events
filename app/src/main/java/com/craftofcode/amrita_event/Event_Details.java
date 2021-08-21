@@ -7,12 +7,14 @@ public class Event_Details {
     private int event_id;
     private String event_date;
     private String event_time;
+    private String event_club;
 
-    public Event_Details(String name, String description, String date, String time, int id){
+    public Event_Details(String name, String description, String date, String time, int id,String club){
         event_id = id;
         event_date = date;
         event_description = description;
         event_name = name;
+        event_club = club;
         event_time = time;
     }
 
@@ -35,5 +37,11 @@ public class Event_Details {
     public int getEvent_id(){
         return event_id;
     }
+
+    public String getEvent_club(){
+        return event_club;
+    }
+
+
 
 }
