@@ -1,6 +1,7 @@
 package com.craftofcode.amrita_event;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,7 +13,7 @@ public class CardView_Home extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-    private ArrayList<Event_Details> eventDetailsArrayList;
+    private ArrayList<Event_Details> EventDetailsArrayList = new ArrayList<Event_Details>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +22,19 @@ public class CardView_Home extends AppCompatActivity {
         recyclerView = findViewById(R.id.cards_recycler);
 
         //dummy data while we wait for API to get ready
-        eventDetailsArrayList.add(new Event_Details("Event one","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",1,"ASCII"));
-        eventDetailsArrayList.add(new Event_Details("Event two","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",2,"GDSC"));
-        eventDetailsArrayList.add(new Event_Details("Event three","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",3,"NSS"));
-        eventDetailsArrayList.add(new Event_Details("Event four","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",4,"Srishti"));
-        eventDetailsArrayList.add(new Event_Details("Event five","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",5,"Anantham"));
+        EventDetailsArrayList.add(new Event_Details("Event one","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",1,"ASCII"));
+        EventDetailsArrayList.add(new Event_Details("Event two","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",2,"GDSC"));
+        EventDetailsArrayList.add(new Event_Details("Event three","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",3,"NSS"));
+        EventDetailsArrayList.add(new Event_Details("Event four","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",4,"Srishti"));
+        EventDetailsArrayList.add(new Event_Details("Event five","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",5,"Anantham"));
 
-        EventsAdapter eventDetails = new EventsAdapter(this,eventDetailsArrayList);
+        EventsAdapter eventDetails = new EventsAdapter(this,EventDetailsArrayList);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        for(int i = 0; i<EventDetailsArrayList.size();i++){
+            Log.d("Printing", String.valueOf(EventDetailsArrayList.get(i)));
+        }
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(eventDetails);
 
     }

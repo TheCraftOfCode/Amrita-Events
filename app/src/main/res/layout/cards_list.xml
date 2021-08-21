@@ -10,7 +10,7 @@
         android:layout_marginTop="20sp"
         android:layout_width="match_parent"
         app:cardCornerRadius="20sp"
-        app:cardElevation="100sp"
+        app:cardElevation="10sp"
         android:layout_height="180sp"
         app:cardBackgroundColor="@color/bg_purple">
 
