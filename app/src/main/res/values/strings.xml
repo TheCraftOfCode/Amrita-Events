@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Amrita-Event</string>
+    <string name="change_password">Change your password</string>
+    <string name="your_username">Enter your username</string>
+    <string name="your_email">Enter your e-mail ID</string>
+    <string name="log_out">Log out</string>
+    <string name="log_in">Login</string>
+    <string name="your_password">Your password here</string>
 </resources>
