@@ -27,6 +27,15 @@
             android:gravity="start"
             />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cards_recycler"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="20sp"
+            app:layout_constraintTop_toBottomOf="@id/text_events"
+            android:layout_width="match_parent"
+            android:layout_height="640dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

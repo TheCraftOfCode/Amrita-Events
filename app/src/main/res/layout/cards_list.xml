@@ -12,7 +12,6 @@
         app:cardCornerRadius="20sp"
         app:cardElevation="100sp"
         android:layout_height="180sp"
-        android:layout_margin="20sp"
         app:cardBackgroundColor="@color/bg_purple">
 
         <TextView
