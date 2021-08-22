@@ -11,18 +11,21 @@
         android:layout_height="wrap_content"
         tools:context=".EventView_Home">
 
+
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="400sp"
             android:id="@+id/event_poster"
+            android:layout_width="match_parent"
+            android:layout_height="660sp"
+            android:contentDescription="@string/poster_content_description"
             android:paddingBottom="16sp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/event_heading"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/event_heading"
-            android:contentDescription="@string/poster_content_description"
-            app:layout_constraintVertical_chainStyle="packed"/>
-
+            android:src="@color/cardview_dark_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/event_heading"
@@ -90,14 +93,31 @@
             android:layout_height="wrap_content"
             android:id="@+id/event_time"
             android:text="Sample time"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/event_phone"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_date"
             app:layout_constraintRight_toRightOf="parent"
             android:paddingStart="16sp"
             android:paddingTop="8sp"
             android:paddingEnd="16sp"
             android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/event_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16sp"
+            android:paddingTop="8sp"
+            android:paddingEnd="16sp"
+            android:text="Sample phone number"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_time"
+            app:layout_constraintVertical_bias="0.0" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
