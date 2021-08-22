@@ -1,9 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventView_Home">
+    android:layout_width="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".EventView_Home">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400sp"
+            android:id="@+id/event_poster"
+            android:paddingBottom="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/event_heading"
+            android:contentDescription="@string/poster_content_description"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+
+        <TextView
+            android:id="@+id/event_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="14sp"
+            android:paddingEnd="16sp"
+            android:paddingBottom="16sp"
+            android:text="Test text"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/event_description_heading"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_poster"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/event_description_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16sp"
+            android:paddingEnd="16sp"
+            android:text="@string/event_description_heading"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/event_description"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_heading"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/event_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintVertical_bias="0.1"
+            android:text="This is a sample event description, will be modified in runtime."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_description_heading"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_date"
+            android:text="Sample date"
+            app:layout_constraintVertical_bias="0.3"
+            android:paddingTop="16sp"
+            android:paddingStart="16sp"
+            android:paddingEnd="16sp"
+            app:layout_constraintTop_toBottomOf="@id/event_description"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/event_time"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_time"
+            android:text="Sample time"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingStart="16sp"
+            android:paddingTop="8sp"
+            android:paddingEnd="16sp"
+            android:textSize="20sp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
