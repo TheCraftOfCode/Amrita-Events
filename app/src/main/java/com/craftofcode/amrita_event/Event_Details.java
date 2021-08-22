@@ -8,14 +8,16 @@ public class Event_Details {
     private String event_date;
     private String event_time;
     private String event_club;
+    private boolean event_status;
 
-    public Event_Details(String name, String description, String date, String time, int id,String club){
+    public Event_Details(String name, String description, String date, String time, int id,String club, boolean status){
         event_id = id;
         event_date = date;
         event_description = description;
         event_name = name;
         event_club = club;
         event_time = time;
+        event_status = status;
     }
 
     public String getEvent_name(){
@@ -42,6 +44,7 @@ public class Event_Details {
         return event_club;
     }
 
-
-
+    public boolean getEvent_status() {
+        return event_status;
+    }
 }

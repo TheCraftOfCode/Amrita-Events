@@ -1,12 +1,15 @@
 package com.craftofcode.amrita_event;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder> {
@@ -40,13 +43,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
 
     @Override
     public int getItemCount() {
-        // this method is used for showing number
-        // of card items in recycler view.
+        // this method is used for showing number of card items in recycler view.
         return eventDetailsArrayList.size();
     }
 
-    // View holder class for initializing of
-    // your views such as TextView and Imageview.
+    // View holder class for initializing of your views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
         private TextView eventName, eventClub, eventDate, eventTime;
 
@@ -56,6 +57,15 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
             eventClub = itemView.findViewById(R.id.card_club);
             eventDate = itemView.findViewById(R.id.card_date);
             eventTime = itemView.findViewById(R.id.card_time);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Intent intent = new Intent(context,EventView_Home.class);
+                    intent.putExtra("position", position);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

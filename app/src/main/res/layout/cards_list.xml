@@ -12,7 +12,9 @@
         app:cardCornerRadius="20sp"
         app:cardElevation="10sp"
         android:layout_height="180sp"
-        app:cardBackgroundColor="@color/bg_purple">
+        app:cardBackgroundColor="@color/bg_purple"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
 
         <TextView
             android:layout_width="match_parent"
