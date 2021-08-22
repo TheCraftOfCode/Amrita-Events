@@ -28,7 +28,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     public EventsAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cards_list, parent, false);
-        return new Viewholder(view);
+        return new Viewholder(view,this);
     }
 
     @Override
@@ -50,13 +50,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     // View holder class for initializing of your views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
         private TextView eventName, eventClub, eventDate, eventTime;
-
-        public Viewholder(@NonNull View itemView) {
+        final EventsAdapter adapter;
+        public Viewholder(View itemView,EventsAdapter adapter) {
             super(itemView);
             eventName = itemView.findViewById(R.id.card_title);
             eventClub = itemView.findViewById(R.id.card_club);
             eventDate = itemView.findViewById(R.id.card_date);
             eventTime = itemView.findViewById(R.id.card_time);
+            this.adapter = adapter;
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
