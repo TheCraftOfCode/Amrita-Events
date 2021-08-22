@@ -9,8 +9,9 @@ public class Event_Details {
     private String event_time;
     private String event_club;
     private boolean event_status;
+    private long event_phone;
 
-    public Event_Details(String name, String description, String date, String time, int id,String club, boolean status){
+    public Event_Details(String name, String description, String date, String time, int id,String club, boolean status, long phone){
         event_id = id;
         event_date = date;
         event_description = description;
@@ -18,6 +19,7 @@ public class Event_Details {
         event_club = club;
         event_time = time;
         event_status = status;
+        event_phone = phone;
     }
 
     public String getEvent_name(){
@@ -46,5 +48,9 @@ public class Event_Details {
 
     public boolean getEvent_status() {
         return event_status;
+    }
+
+    public long getEvent_phone(){
+        return event_phone;
     }
 }

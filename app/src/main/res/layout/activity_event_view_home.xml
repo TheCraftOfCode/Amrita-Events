@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="14sp"
             android:paddingEnd="16sp"
-            android:paddingBottom="16sp"
+            android:paddingBottom="8sp"
             android:text="Test text"
             android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@+id/event_description_heading"
@@ -43,6 +43,23 @@
             app:layout_constraintTop_toBottomOf="@id/event_poster"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/event_club"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16sp"
+            android:paddingBottom="8sp"
+            android:paddingEnd="16sp"
+            android:text="Club name"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/event_description_heading"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_heading"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"/>
 
         <TextView
             android:id="@+id/event_description_heading"
@@ -56,8 +73,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/event_heading"
+            app:layout_constraintTop_toBottomOf="@id/event_club"
             app:layout_constraintVertical_bias="0.0" />
+
 
         <TextView
             android:id="@+id/event_description"

@@ -27,10 +27,23 @@ public class EventView_Home extends AppCompatActivity {
         Bundle importFromCards = getIntent().getExtras();
         int position = importFromCards.getInt("position");
 
-        TextView EventTitle, EventDescription,EventDate,EventTime,EventPhone;
+        TextView eventTitle, eventDescription, eventDate, eventTime, eventPhone, eventClub;
 
+        eventTitle = findViewById(R.id.event_heading);
+        eventDescription = findViewById(R.id.event_description);
+        eventDate = findViewById(R.id.event_date);
+        eventTime = findViewById(R.id.event_time);
+        eventPhone = findViewById(R.id.event_phone);
+        eventClub = findViewById(R.id.event_club);
 
+        Event_Details event = eventDetailsArrayList.get(position);
 
+        eventTitle.setText(event.getEvent_name());
+        eventDescription.setText(event.getEvent_description());
+        eventClub.setText(event.getEvent_club());
+        eventDate.setText(event.getEvent_date());
+        eventTime.setText(event.getEvent_time());
+        eventPhone.setText(Long.toString(event.getEvent_phone()));
 
     }
 }

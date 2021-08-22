@@ -2,6 +2,7 @@ package com.craftofcode.amrita_event;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,8 +50,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
 
     // View holder class for initializing of your views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
+        public View v;
         private TextView eventName, eventClub, eventDate, eventTime;
         final EventsAdapter adapter;
+
+
         public Viewholder(View itemView,EventsAdapter adapter) {
             super(itemView);
             eventName = itemView.findViewById(R.id.card_title);
@@ -58,9 +62,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
             eventDate = itemView.findViewById(R.id.card_date);
             eventTime = itemView.findViewById(R.id.card_time);
             this.adapter = adapter;
+            this.v = itemView;
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
+                    Log.d("onClick: ","Item has been clicked");
                     int position = getAdapterPosition();
                     Intent intent = new Intent(context,EventView_Home.class);
                     intent.putExtra("position", position);
