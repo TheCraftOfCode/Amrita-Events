@@ -100,4 +100,9 @@
     <string name="events_text_resource">Events</string>
     <string name="event_description_heading">Event Description:</string>
     <string name="poster_content_description">Event poster</string>
+    <string name="title">Title</string>
+    <string name="secondary_text">Delete</string>
+    <string name="club">Club</string>
+    <string name="supporting_text">Date</string>
+    <string name="update">Update</string>
 </resources>
