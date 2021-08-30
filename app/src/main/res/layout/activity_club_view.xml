@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context=".MainActivity">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="12dp"
+        app:cardCornerRadius="20dp"
+        android:background="@color/purple_200"
+        android:id="@+id/ASCII"
+
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="left"
+                android:id="@+id/ASCIIiv1"
+                android:src="@drawable/cse_club"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ASCIItv1"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/ASCIIiv1"
+                android:layout_marginRight="10dp"
+                android:text="ASSOCIATION OF STUDENTS OF COMPUTER SCIENCE FOR INFORMATION INTERCHANGE (ASCII)"
+                android:textColor="@color/black"
+                android:textSize="13dp"/>
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/ASCIItv1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/ASCIItv2"
+                android:textSize="10dp"
+                android:text="The Association of Students of Computer Science for Information Interchange (ASCII) is the technical association of the Department of Computer Science and Engineering, Amrita Vishwa Vidyapeetham. It was established in the year 1997. The association hosts various technical and social events planned and executed by students."
+                />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/instagram"
+                android:id="@+id/ASCIIiv2"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/ASCIItv2"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ASCIItv3"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                android:text="@string/ASCII"
+                android:gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/ASCIItv2"
+                android:layout_toRightOf="@+id/ASCIIiv2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ASCIIiv2"
+                android:layout_marginTop="10dp"
+                android:text="Check events"
+
+                android:layout_marginLeft="210dp"
+                android:textSize="12dp"
+
+                android:id="@+id/ASCIIbt1"
+                android:gravity="right"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ASCIIbt1"/>
+
+
+            `
+        </RelativeLayout>
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/ASCII"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="12dp"
+        app:cardCornerRadius="20dp"
+        android:id="@+id/shrishti"
+
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="left"
+                android:id="@+id/shrishtiiv1"
+                android:src="@drawable/srishti"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shrishtitv1"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/shrishtiiv1"
+                android:layout_marginRight="10dp"
+                android:text="SRISHTI"
+                android:textColor="@color/black"
+                android:textSize="30dp"/>
+
+
+
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/shrishtitv1"
+                android:id="@+id/shrishtitv2"
+                android:textSize="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="13 years ago, a motivated set of great minds wanted to go beyond what was taught in class.
+
+They were artists, language enthusiasts, poets, quizzers, theatre enthusiasts, writers and speakers who wanted more from college life than just assignments and tests.
+And so they created Srishti, a literary club in an predominantly engineering world.
+Srishti inspired the students to break stereotypes and nurture their talents. It allowed them to escape from the regular college humdrum and motivated them to be explosively creative.
+
+The club grew in leaps and bounds and stands as a pillar of creativity and excellence in Amrita. Srishtians have held the torch high and passed the baton to their juniors year."
+                />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/instagram"
+                android:id="@+id/shrishtiiv2"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/shrishtitv2"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shrishtitv3"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                android:text="@string/srishti"
+                android:gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/shrishtitv2"
+                android:layout_toRightOf="@+id/shrishtiiv2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shrishtiiv2"
+                android:layout_marginTop="10dp"
+                android:text="Check events"
+
+                android:layout_marginLeft="210dp"
+                android:textSize="12dp"
+
+                android:id="@+id/shrishtibt1"
+                android:gravity="right"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shrishtibt1"/>
+
+
+            `
+        </RelativeLayout>
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
