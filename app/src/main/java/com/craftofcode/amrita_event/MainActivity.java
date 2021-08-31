@@ -33,7 +33,12 @@ public class MainActivity extends AppCompatActivity {
         } else if (uname.equals("username2") && pword.equals("password2")) {
             Intent intent = new Intent(this, club_view.class);
             startActivity(intent);
-        } else {
+        }
+        else if(uname.equals("username3")&&pword.equals("password3")){
+            Intent intent = new Intent(this,Card_list_View_Admins.class);
+            startActivity(intent);
+        }
+        else {
             Toast.makeText(getApplicationContext(), "Wrong credentials, try again", Toast.LENGTH_SHORT).show();
         }
     }

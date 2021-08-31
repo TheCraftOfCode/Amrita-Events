@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
         public View v;
         private TextView eventName, eventClub, eventDate, eventTime;
         final EventsAdapter adapter;
+        private Button view_more;
 
 
         public Viewholder(View itemView,EventsAdapter adapter) {
@@ -61,10 +63,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
             eventClub = itemView.findViewById(R.id.card_club);
             eventDate = itemView.findViewById(R.id.card_date);
             eventTime = itemView.findViewById(R.id.card_time);
+            view_more = itemView.findViewById(R.id.moreButton);
             this.adapter = adapter;
             this.v = itemView;
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            view_more.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     Log.d("onClick: ","Item has been clicked");
                     int position = getAdapterPosition();
