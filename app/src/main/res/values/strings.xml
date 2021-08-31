@@ -7,6 +7,8 @@
     <string name="log_in">Login</string>
     <string name="your_password">Your password here</string>
     <string name="title_activity_card_view_home">ScrollingActivity</string>
+    <string name="ASCII"><a href="https://www.instagram.com/ascii_amrita/">@ascii_amrita</a></string>
+    <string name="srishti"><a href="https://www.instagram.com/srishti_amrita/">@srishti_amrita</a></string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
