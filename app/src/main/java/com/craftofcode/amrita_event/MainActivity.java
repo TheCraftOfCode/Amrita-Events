@@ -16,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
     }
 
 
@@ -29,17 +27,15 @@ public class MainActivity extends AppCompatActivity {
         String uname = usernameTV.getText().toString();
         String pword = passwordTV.getText().toString();
 
-        if(uname.equals("username")&&(pword.equals("password"))){
+        if (uname.equals("username") && (pword.equals("password"))) {
             Intent intent = new Intent(this, CardView_Home.class);
             startActivity(intent);
-        }
-
-        else{
-            Toast.makeText(getApplicationContext(),"Wrong credentials, try again", Toast.LENGTH_SHORT).show();
-        }
-
-        //else if(uname.equals("username2")&&pword.equals("password2")){
-        //    Intent intent = new Intent(this,)
+        } else if (uname.equals("username2") && pword.equals("password2")) {
+            Intent intent = new Intent(this, club_view.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "Wrong credentials, try again", Toast.LENGTH_SHORT).show();
         }
     }
 
+}

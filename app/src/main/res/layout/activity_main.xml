@@ -28,7 +28,7 @@
 
         >
 
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/username"
@@ -52,10 +52,11 @@
         android:id="@+id/password_input_layout"
         >
 
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/password"
+            android:inputType="textPassword"
             android:textColor="#000"
             android:hint="@string/your_password"
             android:textSize="20sp"

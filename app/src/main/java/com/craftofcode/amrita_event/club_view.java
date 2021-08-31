@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Clubs_View extends AppCompatActivity {
+public class club_view extends AppCompatActivity {
     Button ascii, shrishti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
