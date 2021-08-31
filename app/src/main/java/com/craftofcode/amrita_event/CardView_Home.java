@@ -2,6 +2,7 @@ package com.craftofcode.amrita_event;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,4 +39,6 @@ public class CardView_Home extends AppCompatActivity {
         recyclerView.setAdapter(eventDetails);
 
     }
+
+
 }
