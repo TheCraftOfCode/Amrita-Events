@@ -32,11 +32,3 @@ jobs:
             title: 'Development Build of Amrita Events Android'
             files: app/build/outputs/apk/release/app-release.apk
 
-
-
-      - name: Send message to Discord
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEB_HOOK_URL}}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
