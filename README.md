@@ -1,3 +1,3 @@
 # Amrita-Events
 
-This is the amrita events android app 
+This is the amrita events android.
