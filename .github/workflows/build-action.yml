@@ -1,6 +1,8 @@
 name: Amrita Events Android Build
 
-on: [push]
+on:
+  push:
+
 
 jobs:
   build:
