@@ -34,9 +34,8 @@ public class CardView_Home extends AppCompatActivity {
         for(int i = 0; i<EventDetailsArrayList.size();i++){
             Log.d("Printing", String.valueOf(EventDetailsArrayList.get(i)));
         }
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(eventDetails);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

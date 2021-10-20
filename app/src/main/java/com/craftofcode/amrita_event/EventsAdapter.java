@@ -34,7 +34,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventsAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(EventsAdapter.Viewholder holder, int position) {
         // to set data to textview and imageview of each card layout
         Event_Details event = eventDetailsArrayList.get(position);
         holder.eventName.setText(event.getEvent_name());

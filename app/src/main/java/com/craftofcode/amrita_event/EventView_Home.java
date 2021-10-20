@@ -2,6 +2,7 @@ package com.craftofcode.amrita_event;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +15,11 @@ public class EventView_Home extends AppCompatActivity {
     private ArrayList<Event_Details> eventDetailsArrayList;
 
 
-    public EventView_Home(Context context, ArrayList<Event_Details> eventDetailsArrayList) {
-        this.context = context;
-        this.eventDetailsArrayList = eventDetailsArrayList;
-    }
+//    public EventView_Home(Context context, ArrayList<Event_Details> eventDetailsArrayList) {
+//        this.context = context;
+//        this.eventDetailsArrayList = eventDetailsArrayList;
+//    }
+//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +38,15 @@ public class EventView_Home extends AppCompatActivity {
         eventPhone = findViewById(R.id.event_phone);
         eventClub = findViewById(R.id.event_club);
 
-        Event_Details event = eventDetailsArrayList.get(position);
-
-        eventTitle.setText(event.getEvent_name());
-        eventDescription.setText(event.getEvent_description());
-        eventClub.setText(event.getEvent_club());
-        eventDate.setText(event.getEvent_date());
-        eventTime.setText(event.getEvent_time());
-        eventPhone.setText(Long.toString(event.getEvent_phone()));
-
+        Log.d("message", "Intent called");
+//        Event_Details event = eventDetailsArrayList.get(position);
+//
+//        eventTitle.setText(event.getEvent_name());
+//        eventDescription.setText(event.getEvent_description());
+//        eventClub.setText(event.getEvent_club());
+//        eventDate.setText(event.getEvent_date());
+//        eventTime.setText(event.getEvent_time());
+//        eventPhone.setText(Long.toString(event.getEvent_phone()));
+//
     }
 }

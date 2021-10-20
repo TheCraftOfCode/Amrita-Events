@@ -1,0 +1,40 @@
+name: Amrita Events Android Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set Up JDK
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Run Tests
+        run: ./gradlew test
+
+      - name: Build Project
+        run: ./gradlew build
+
+      - uses: 'marvinpinto/action-automatic-releases@latest'
+          with:
+            repo_token: "${{ secrets.GITHUB_TOKEN }}"
+            automatic_release_tag: "latest"
+            prerelease: false
+            title: 'Development Build of Amrita Events Android'
+            files: app/build/outputs/apk/release/app-release.apk
+
+
+      - name: Send message to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEB_HOOK_URL}}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
