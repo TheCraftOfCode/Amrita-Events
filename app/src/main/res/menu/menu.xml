@@ -8,5 +8,11 @@
         android:icon="@drawable/ic_baseline_share_24"
         app:showAsAction="always"/>
 
+    <item
+        android:id="@+id/set_reminder"
+        android:title="Set reminder"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        app:showAsAction="always"/>
+
 
 </menu>

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder> {
 
     private Context context;
-    private ArrayList<Event_Details> eventDetailsArrayList;
+    private final ArrayList<Event_Details> eventDetailsArrayList;
 
 
     public EventsAdapter(Context context, ArrayList<Event_Details> eventDetailsArrayList) {
@@ -72,6 +72,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
                     Log.d("onClick: ","Item has been clicked");
                     int position = getAdapterPosition();
                     Intent intent = new Intent(context,EventView_Home.class);
+                    intent.putExtra("id",eventDetailsArrayList.get(position).getEvent_id());
+                    intent.putExtra("status",eventDetailsArrayList.get(position).getEvent_status());
                     intent.putExtra("name",eventDetailsArrayList.get(position).getEvent_name());
                     intent.putExtra("club",eventDetailsArrayList.get(position).getEvent_club());
                     intent.putExtra("date",eventDetailsArrayList.get(position).getEvent_date());

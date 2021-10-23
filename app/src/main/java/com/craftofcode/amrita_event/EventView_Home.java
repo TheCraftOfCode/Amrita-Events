@@ -1,27 +1,42 @@
 package com.craftofcode.amrita_event;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
 
 public class EventView_Home extends AppCompatActivity {
 
-    private Context context;
-    private ArrayList<Event_Details> eventDetailsArrayList;
-
-
-    public EventView_Home(Context context, ArrayList<Event_Details> eventDetailsArrayListExternal) {
-        this.context = context;
-        this.eventDetailsArrayList = eventDetailsArrayListExternal;
-    }
-
     public EventView_Home(){}
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        String shareString = "This is a test string";
+
+        int id = item.getItemId();
+        if(id==R.id.share_button){
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("application/vnd.android.package-archive");
+            intent.putExtra(Intent.EXTRA_TEXT,shareString);
+            startActivity(intent.createChooser(intent,"Share via"));
+        }
+
+
+
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +50,8 @@ public class EventView_Home extends AppCompatActivity {
         String date = importFromCards.getString("date");
         String time = importFromCards.getString("time");
         String phone = importFromCards.getString("phone");
+        String eventID = importFromCards.getString("id");
+        boolean eventStatus = Boolean.parseBoolean(importFromCards.getString("status"));
 
 
         TextView eventTitle, eventDescription, eventDate, eventTime, eventPhone, eventClub;
@@ -57,3 +74,10 @@ public class EventView_Home extends AppCompatActivity {
 
     }
 }
+
+//Event Name
+//Tagline
+//Cub name
+//Description
+//Time
+//Contact
