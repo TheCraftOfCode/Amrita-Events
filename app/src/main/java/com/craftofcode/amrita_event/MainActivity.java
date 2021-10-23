@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         String uname = usernameTV.getText().toString();
         String pword = passwordTV.getText().toString();
 
+
+        Intent firstIntent = new Intent(this, CardView_Home.class);
+        startActivity(firstIntent);
+
+
         if (uname.equals("username") && (pword.equals("password"))) {
             Intent intent = new Intent(this, CardView_Home.class);
             startActivity(intent);

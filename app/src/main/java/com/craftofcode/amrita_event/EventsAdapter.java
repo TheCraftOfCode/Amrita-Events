@@ -59,11 +59,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
 
         public Viewholder(View itemView,EventsAdapter adapter) {
             super(itemView);
-            eventName = itemView.findViewById(R.id.card_title);
-            eventClub = itemView.findViewById(R.id.card_club);
-            eventDate = itemView.findViewById(R.id.card_date);
-            eventTime = itemView.findViewById(R.id.card_time);
-            view_more = itemView.findViewById(R.id.moreButton);
+            eventName = itemView.findViewById(R.id.title);
+            eventClub = itemView.findViewById(R.id.club);
+            eventDate = itemView.findViewById(R.id.date);
+            eventTime = itemView.findViewById(R.id.time);
+            view_more = itemView.findViewById(R.id.view_more);
             this.adapter = adapter;
             this.v = itemView;
 
@@ -72,7 +72,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
                     Log.d("onClick: ","Item has been clicked");
                     int position = getAdapterPosition();
                     Intent intent = new Intent(context,EventView_Home.class);
-                    intent.putExtra("position", position);
+                    intent.putExtra("name",eventDetailsArrayList.get(position).getEvent_name());
+                    intent.putExtra("club",eventDetailsArrayList.get(position).getEvent_club());
+                    intent.putExtra("date",eventDetailsArrayList.get(position).getEvent_date());
+                    intent.putExtra("time",eventDetailsArrayList.get(position).getEvent_time());
+                    intent.putExtra("description",eventDetailsArrayList.get(position).getEvent_description());
+                    intent.putExtra("phone",String.valueOf(eventDetailsArrayList.get(position).getEvent_phone()));
                     context.startActivity(intent);
                 }
             });

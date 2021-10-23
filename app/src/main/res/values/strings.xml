@@ -107,4 +107,5 @@
     <string name="club">Club</string>
     <string name="supporting_text">Date</string>
     <string name="update">Update</string>
+    <string name="more"><![CDATA[More >]]></string>
 </resources>

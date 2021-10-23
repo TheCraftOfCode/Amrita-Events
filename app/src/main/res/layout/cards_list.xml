@@ -1,77 +1,105 @@
+
+<!--Card View -->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:layout_margin="15dp"
     android:weightSum="10">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
-        android:layout_marginTop="20sp"
+        android:background="@color/teal_200"
+        app:cardCornerRadius="30dp"
+        android:transitionName="ContainerTransform"
         android:layout_width="match_parent"
-        app:cardCornerRadius="20sp"
-        app:cardElevation="0sp"
-        android:layout_height="180sp"
-        app:cardBackgroundColor="@color/bg_purple"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground">
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/purple_700"
-            android:layout_marginTop="20sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginLeft="10sp"
-            android:text="Title"
-            android:textStyle="bold"
-            android:id="@+id/card_title"
-            android:textSize="30sp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_marginTop="100sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginLeft="10sp"
-            android:text="Date"
-            android:id="@+id/card_date"
-            android:textSize="25sp"/>
+            <!-- Media -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:id="@+id/event_image"
+                app:srcCompat="@drawable/ic_launcher_background"
+                android:scaleType="centerCrop"
+                />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_marginTop="70sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginLeft="10sp"
-            android:text="Club"
-            android:id="@+id/card_club"
-            android:textSize="25sp"/>
+            <LinearLayout
+                android:background="@color/bg_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_marginTop="130sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginLeft="10sp"
-            android:text="Title"
-            android:id="@+id/card_time"
-            android:textSize="25sp"/>
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title"
+                    android:id="@+id/title"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    android:textAppearance="?attr/textAppearanceHeadline4"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/club"
+                    android:text="@string/club"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/date"
+                    android:text="@string/supporting_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:layout_gravity="end"
-            android:text="More >"
-            android:onClick="viewMore"
-            android:id="@+id/moreButton">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/time"
+                    android:text="@string/supporting_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    />
 
-        </Button>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/bg_purple"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180sp"
+                        android:id="@+id/view_more"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        style="?attr/borderlessButtonStyle"
+                        android:text="@string/more"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Buttons -->
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

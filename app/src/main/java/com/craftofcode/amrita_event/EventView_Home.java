@@ -15,11 +15,13 @@ public class EventView_Home extends AppCompatActivity {
     private ArrayList<Event_Details> eventDetailsArrayList;
 
 
-//    public EventView_Home(Context context, ArrayList<Event_Details> eventDetailsArrayList) {
-//        this.context = context;
-//        this.eventDetailsArrayList = eventDetailsArrayList;
-//    }
-//
+    public EventView_Home(Context context, ArrayList<Event_Details> eventDetailsArrayListExternal) {
+        this.context = context;
+        this.eventDetailsArrayList = eventDetailsArrayListExternal;
+    }
+
+    public EventView_Home(){}
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,13 @@ public class EventView_Home extends AppCompatActivity {
         setContentView(R.layout.activity_event_view_home);
 
         Bundle importFromCards = getIntent().getExtras();
-        int position = importFromCards.getInt("position");
+        String name = importFromCards.getString("name");
+        String club = importFromCards.getString("club");
+        String description = importFromCards.getString("description");
+        String date = importFromCards.getString("date");
+        String time = importFromCards.getString("time");
+        String phone = importFromCards.getString("phone");
+
 
         TextView eventTitle, eventDescription, eventDate, eventTime, eventPhone, eventClub;
 
@@ -39,14 +47,13 @@ public class EventView_Home extends AppCompatActivity {
         eventClub = findViewById(R.id.event_club);
 
         Log.d("message", "Intent called");
-//        Event_Details event = eventDetailsArrayList.get(position);
-//
-//        eventTitle.setText(event.getEvent_name());
-//        eventDescription.setText(event.getEvent_description());
-//        eventClub.setText(event.getEvent_club());
-//        eventDate.setText(event.getEvent_date());
-//        eventTime.setText(event.getEvent_time());
-//        eventPhone.setText(Long.toString(event.getEvent_phone()));
-//
+
+        eventTitle.setText(name);
+        eventDescription.setText(description);
+        eventClub.setText(club);
+        eventDate.setText(date);
+        eventTime.setText(time);
+        eventPhone.setText(phone);
+
     }
 }
