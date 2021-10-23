@@ -2,6 +2,7 @@ package com.craftofcode.amrita_event.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.craftofcode.amrita_event.Expanded_Card_Admins;
 import com.craftofcode.amrita_event.R;
 
 import java.util.LinkedList;
@@ -25,7 +27,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
     public Context context;
 
 
-     class ItemViewHolder extends RecyclerView.ViewHolder {
+     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public ImageView ImageEvent;
         public TextView EventTitle;
         public TextView OrgClub;
@@ -45,29 +47,24 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
             DeleteButton = EventView.findViewById(R.id.delbutton);
             UpdateButton = EventView.findViewById(R.id.updbutton);
             this.EventsAdapter = EventsAdapter;
-            //EventView.setOnClickListener(this);
+            EventView.setOnClickListener(this);
 
-            DeleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Make a Delete Request
-                }
-            });
+            DeleteButton.setOnClickListener(this);
             UpdateButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("mess" , "Hello click");
+                    Log.d("mess" , "Herllo click");
                     Log.d("mess", String.valueOf(getAdapterPosition()));
                 }
             });
         }
 
-//        @Override
-//        public void onClick(View v) {
-//            Intent intent = new Intent(context, Expanded_Card_Admins.class);
-//            //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, v, "ContainerTransform");
-//            context.startActivity(intent);
-//        }
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, Expanded_Card_Admins.class);
+            //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, v, "ContainerTransform");
+            context.startActivity(intent);
+        }
     }
 
     public EventListAdapter(Context context, LinkedList<String> EventTitle, LinkedList<Integer> EventImage, LinkedList<String> OrgClub,LinkedList<String> EventDate){

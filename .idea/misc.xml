@@ -7,14 +7,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_card_list_view_admins.xml" value="0.20643363728470113" />
-        <entry key="app/src/main/res/layout/activity_card_view_home.xml" value="0.20643363728470113" />
-        <entry key="app/src/main/res/layout/activity_club_view.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/activity_event_view_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_expanded_card_admins.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13949275362318841" />
         <entry key="app/src/main/res/layout/admin_card_view.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/cards_list.xml" value="0.1" />
-        <entry key="app/src/main/res/menu/menu.xml" value="0.1" />
       </map>
     </option>
   </component>

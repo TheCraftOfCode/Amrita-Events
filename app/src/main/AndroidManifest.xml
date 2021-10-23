@@ -2,11 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.craftofcode.amrita_event">
 
-    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmritaEvent">
+        <activity
+            android:name=".Expanded_Card_Admins"
+            android:exported="true" />
         <activity
             android:name=".Card_list_View_Admins"
             android:exported="true" />
@@ -28,6 +26,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
