@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmritaEvent">
         <activity
-            android:name=".Expanded_Card_Admins"
-            android:exported="true" />
-        <activity
             android:name=".Card_list_View_Admins"
             android:exported="true" />
         <activity android:name=".club_view"/>
@@ -26,5 +23,6 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

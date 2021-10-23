@@ -6,9 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.interceptors.HttpLoggingInterceptor;
 import com.craftofcode.amrita_event.adapter.EventListAdapter;
+import com.jacksonandroidnetworking.JacksonParserFactory;
 
 import java.util.LinkedList;
+
+import okhttp3.OkHttpClient;
 
 public class Card_list_View_Admins extends AppCompatActivity {
     public EventListAdapter adapter;
@@ -38,6 +43,19 @@ public class Card_list_View_Admins extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_list_view_admins);
+
+        // Adding an Network Interceptor for Debugging purpose :
+        OkHttpClient okHttpClient = new OkHttpClient() .newBuilder()
+                .addNetworkInterceptor(new HttpLoggingInterceptor())
+                .build();
+
+
+        AndroidNetworking.initialize(getApplicationContext(),okHttpClient);
+
+        // setting the JacksonParserFactory below
+        AndroidNetworking.setParserFactory(new JacksonParserFactory());
+
+
         recyclerView = findViewById(R.id.recyclerView);
 
         for(int i = 0; i< Title.length; i++){
