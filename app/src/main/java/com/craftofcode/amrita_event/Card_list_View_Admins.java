@@ -70,7 +70,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         SharedPreferences.Editor edit = TOKEN.edit();
 
         //pushing token to shared preference
-        edit.putString("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzUwODczODV9.EIfz22nKX7B6cCMgJ8eVbWDK2SPmRr38JJdFjPzgwg0");
+        edit.putString("user-auth-token", "some random shit");
         edit.commit();
 
         // Api call is being made Here
