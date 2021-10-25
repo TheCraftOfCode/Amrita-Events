@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.craftofcode.amrita_event.R;
@@ -66,15 +67,21 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
     }
 
     public EventListAdapter(Context context, LinkedList<String> EventTitle, LinkedList<Integer> EventImage, LinkedList<String> OrgClub,LinkedList<String> EventDate){
-        ItemLayoutInflater = LayoutInflater.from(context);
         this.EventTitle = EventTitle;
         this.EventImage = EventImage;
         this.OrgClub = OrgClub;
         this.EventDate = EventDate;
         this.context = context;
+
+        System.out.println(EventTitle);
+        System.out.println(EventImage);
+        System.out.println(OrgClub);
+        System.out.println(EventDate);
     }
-    public EventListAdapter.ItemViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
-        View ItemView = ItemLayoutInflater.inflate(R.layout.admin_card_view,parent,false);
+    @NonNull
+    public EventListAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ItemLayoutInflater = LayoutInflater.from(parent.getContext());
+        View ItemView = ItemLayoutInflater.inflate(R.layout.admin_card_view, parent,false);
         return new ItemViewHolder(ItemView, this);
     }
 
@@ -88,7 +95,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
         holder.ImageEvent.setImageResource(CurrentEventImage);
         holder.OrgClub.setText(CurrentOrgClub);
         holder.Date.setText(CurrentEventDate);
-
         //onclick listener here
     }
 

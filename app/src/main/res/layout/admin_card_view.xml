@@ -14,6 +14,7 @@
         android:background="@color/teal_200"
         app:cardCornerRadius="30dp"
         android:transitionName="ContainerTransform"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="0dp">

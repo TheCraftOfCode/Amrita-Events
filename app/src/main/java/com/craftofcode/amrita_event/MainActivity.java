@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, club_view.class);
             startActivity(intent);
         }
-        else if(uname.equals("username3")&&pword.equals("password3")){
+        else if(uname.equals("")&&pword.equals("")){
             Intent intent = new Intent(this,Card_list_View_Admins.class);
             startActivity(intent);
         }
