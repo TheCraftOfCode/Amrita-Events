@@ -3,6 +3,7 @@ package com.craftofcode.amrita_event;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.craftofcode.amrita_event.adapter.EventListAdapter;
 import com.craftofcode.amrita_event.apiModel.MySingleton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,10 +38,6 @@ public class Card_list_View_Admins extends AppCompatActivity {
     Network network;
     RequestQueue requestQueue;
 
-
-//    public String[] Title = {"Peppy paneer Pizza", "Paneer Makhni Pizza", "Cheese Burst Pizza", "Corn Pizza","papperoni pizza","farm house pizza", "vegie deilight pizza","chicken pizza", "tandoori pizza","custom pizza"};
-//    public String[] Club = {"Peppy paneer Pizza", "Paneer Makhni Pizza", "Cheese Burst Pizza", "Corn Pizza","papperoni pizza","farm house pizza", "vegie deilight pizza","chicken pizza", "tandoori pizza","custom pizza"};
-//    public String[] Date = {"250","260","240.5","350","312","250","260","240.5","350","312"};
     int[] EventImages = {
             R.drawable.p1,
             R.drawable.p2,
@@ -56,6 +54,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
     private LinkedList<String> Clubname;
     private LinkedList<String> DateEvent;
 
+    private FloatingActionButton CreateEvents;
 
 
     @Override
@@ -74,11 +73,10 @@ public class Card_list_View_Admins extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
+        //setting up the adapter
         adapter = new EventListAdapter(getApplicationContext(), EventTitle, EventImage, Clubname, DateEvent);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
-        // Image Url String for now
 
         // setting up the Request Queue
         SettingUpRequestQueue();
@@ -89,6 +87,33 @@ public class Card_list_View_Admins extends AppCompatActivity {
         //pushing token to shared preference
         edit.putString("user-auth-token", "");
         edit.commit();
+
+        //Get Request to render all the events.
+        GetRequestToTheAdminSideEventCardView();
+
+        CreateEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PostRequestToCreateANewEvents();
+            }
+        });
+    }
+
+    private void PostRequestToCreateANewEvents() {
+        //Create a a new post request
+
+        //After A new event Get request should be made again
+        GetRequestToTheAdminSideEventCardView();
+    }
+
+    private void SettingUpRequestQueue() {
+        cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); //1Mb cap
+        network = new BasicNetwork(new HurlStack());
+        requestQueue = new RequestQueue(cache, network);
+        requestQueue.start();
+    }
+
+    private void GetRequestToTheAdminSideEventCardView(){
 
         // Api call is being made Here
         String AdminUsersEventsEndpoint = "https://amrita-events.herokuapp.com/api/admin-users-portal";
@@ -105,13 +130,14 @@ public class Card_list_View_Admins extends AppCompatActivity {
                         EventTitle.clear();
                         Clubname.clear();
                         DateEvent.clear();
-
+                        //Notifying that the dataset is changes when there is a new
                         adapter.notifyDataSetChanged();
-                        //System.out.println(response);
+                        //System.out.println(response);  //debugging purposes
                         for(int i = 0; i < response.length(); i++){
                             try {
                                 EventImage.addLast(EventImages[i]);
-                                System.out.println(response.getJSONObject(i));
+                                //System.out.println(response.getJSONObject(i));   Debugging
+
                                 JSONObject event = response.getJSONObject(i);
                                 _id.addLast(event.get("_id").toString());
                                 Url.addLast(event.get("ImageUrl").toString());
@@ -147,14 +173,6 @@ public class Card_list_View_Admins extends AppCompatActivity {
         //adding the request to Queue
         MySingleton.getInstance(this).addToRequestQueue(EventCardRequest);
 
-
-    }
-
-    private void SettingUpRequestQueue() {
-        cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); //1Mb cap
-        network = new BasicNetwork(new HurlStack());
-        requestQueue = new RequestQueue(cache, network);
-        requestQueue.start();
     }
 
 }
