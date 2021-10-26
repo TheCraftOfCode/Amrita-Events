@@ -13,13 +13,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.craftofcode.amrita_event.R;
 
 import java.util.LinkedList;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.ItemViewHolder> {
     private final LinkedList<String> EventTitle;
-    private final LinkedList<Integer> EventImage;
+    private final LinkedList<String> EventImage;
     private final LinkedList<String> OrgClub;
     private final LinkedList<String> EventDate;
     private LayoutInflater ItemLayoutInflater;
@@ -66,7 +67,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
         }
     }
 
-    public EventListAdapter(Context context, LinkedList<String> EventTitle, LinkedList<Integer> EventImage, LinkedList<String> OrgClub,LinkedList<String> EventDate){
+    public EventListAdapter(Context context, LinkedList<String> EventTitle, LinkedList<String> EventImage, LinkedList<String> OrgClub,LinkedList<String> EventDate){
         this.EventTitle = EventTitle;
         this.EventImage = EventImage;
         this.OrgClub = OrgClub;
@@ -88,11 +89,13 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
     @Override
     public void onBindViewHolder(EventListAdapter.ItemViewHolder holder, int position) {
         String CurrentEventName = EventTitle.get(position);
-        int CurrentEventImage = EventImage.get(position);
+        String CurrentEventImageUrl = EventImage.get(position);
+
+        //Using Glide to Download Image
+        Glide.with(context).load(CurrentEventImageUrl).into(holder.ImageEvent);
         String CurrentOrgClub = OrgClub.get(position);
         String CurrentEventDate = EventDate.get(position);
         holder.EventTitle.setText(CurrentEventName);
-        holder.ImageEvent.setImageResource(CurrentEventImage);
         holder.OrgClub.setText(CurrentOrgClub);
         holder.Date.setText(CurrentEventDate);
         //onclick listener here

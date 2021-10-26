@@ -3,7 +3,6 @@ package com.craftofcode.amrita_event;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -74,7 +73,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         //setting up the adapter
-        adapter = new EventListAdapter(getApplicationContext(), EventTitle, EventImage, Clubname, DateEvent);
+        adapter = new EventListAdapter(getApplicationContext(), EventTitle, Url, Clubname, DateEvent);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
@@ -91,12 +90,12 @@ public class Card_list_View_Admins extends AppCompatActivity {
         //Get Request to render all the events.
         GetRequestToTheAdminSideEventCardView();
 
-        CreateEvents.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PostRequestToCreateANewEvents();
-            }
-        });
+//        CreateEvents.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                PostRequestToCreateANewEvents();
+//            }
+//        });
     }
 
     private void PostRequestToCreateANewEvents() {
