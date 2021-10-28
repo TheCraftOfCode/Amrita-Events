@@ -1,10 +1,10 @@
 package com.craftofcode.amrita_event;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,11 +39,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
     Network network;
     RequestQueue requestQueue;
 
-    int[] EventImages = {
-            R.drawable.p1,
-            R.drawable.p2,
-    };
-
+    public ProgressBar progressBar;
     public RecyclerView recyclerView;
     public EventListAdapter adapter;
 
@@ -73,12 +69,15 @@ public class Card_list_View_Admins extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         CreateEvents = findViewById(R.id.createEvents);
+        progressBar = findViewById(R.id.progress_bar);
 
         //setting up the adapter
         adapter = new EventListAdapter(getApplicationContext(), _id,EventTitle, Url, Clubname, DateEvent);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+        //progress bar visibilty
+        progressBarVisible();
         // setting up the Request Queue
         SettingUpRequestQueue();
 
@@ -86,7 +85,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         SharedPreferences.Editor edit = TOKEN.edit();
 
         //pushing token to shared preference
-        edit.putString("user-auth-token", "");
+        edit.putString("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzU0NDU2MTN9.3SBHs7GxSMLZkGrn4_RUDwo3-4MmIYxGU4wjk7Cz9vI");
         edit.commit();
 
         //Get Request to render all the events.
@@ -95,8 +94,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         CreateEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Pop.class);
-                startActivity(intent);
+
             }
         });
     }
@@ -132,6 +130,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
                         EventTitle.clear();
                         Clubname.clear();
                         DateEvent.clear();
+
                         //Notifying that the dataset is changes when there is a new
                         adapter.notifyDataSetChanged();
                         //System.out.println(response);  //debugging purposes
@@ -146,7 +145,6 @@ public class Card_list_View_Admins extends AppCompatActivity {
                                 EventTitle.addLast(event.get("Title").toString());
                                 Clubname.addLast(event.get("OrganizingClub").toString());
                                 DateEvent.addLast(event.get("Date").toString());
-
                                 adapter.notifyItemInserted(i);
 
                             } catch (JSONException e) {
@@ -154,6 +152,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
                             }
                         }
 
+                        progrssBarInVisible();
                     }
                 }, new Response.ErrorListener() {
 
@@ -175,6 +174,18 @@ public class Card_list_View_Admins extends AppCompatActivity {
         //adding the request to Queue
         MySingleton.getInstance(this).addToRequestQueue(EventCardRequest);
 
+    }
+
+    public void progressBarVisible(){
+        progressBar.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
+        CreateEvents.setVisibility(View.INVISIBLE);
+    }
+
+    public void progrssBarInVisible(){
+        progressBar.setVisibility(View.INVISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
+        CreateEvents.setVisibility(View.VISIBLE);
     }
 
 }

@@ -9,5 +9,24 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bg_purple">#b39ddb</color>
 
+    <!-- Color Primary:  #6200EE #FF0000-->
+    <!-- Color Accent:  #03DAC5 #DAA403 -->
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#41008C</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorBox">#2196F3</color>
+    <color name="colorWhite">#FFFF</color>
+    <color name="colorWhiteUnselected">#D1D1D1</color>
+    <color name="colorGreyTranslucent">#80FFFFFF</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGrey">#585858</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorRedDull">#C10D00</color>
+    <color name="colorLightGrey">#B8B8B8</color>
+    <color name="colorPurple">#A536F4</color>
+    <color name="colorGreen">#37FF00</color>
+    <color name="colorBlue">#0037FF</color>
+
     <!-- Have to add the material colours -->
 </resources>

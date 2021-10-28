@@ -77,7 +77,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
 
                     //opening a delete request
                     DeleteRequestToDeleteEvent(getAdapterPosition());
-                    System.out.println("Done..!");
+                    //System.out.println("Done..!");
                 }
             });
             UpdateButton.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +129,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                  public Map<String, String> getHeaders() throws AuthFailureError {
                      SharedPreferences Token = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
                      Map<String, String> params = new HashMap<String, String>();
-                     params.put("user-auth-token","");
+                     params.put("user-auth-token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzU0NDU2MTN9.3SBHs7GxSMLZkGrn4_RUDwo3-4MmIYxGU4wjk7Cz9vI");
                      return params;
                  }
              };
