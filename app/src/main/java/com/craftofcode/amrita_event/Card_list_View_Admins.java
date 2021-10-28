@@ -1,8 +1,10 @@
 package com.craftofcode.amrita_event;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,20 +62,20 @@ public class Card_list_View_Admins extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         _id = new LinkedList<>();
-        EventImage = new LinkedList<>();
+
         Url = new LinkedList<>();
         EventTitle = new LinkedList<>();
         Clubname = new LinkedList<>();
         DateEvent = new LinkedList<>();
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_list_view_admins);
 
         recyclerView = findViewById(R.id.recyclerView);
+        CreateEvents = findViewById(R.id.createEvents);
 
         //setting up the adapter
-        adapter = new EventListAdapter(getApplicationContext(), EventTitle, Url, Clubname, DateEvent);
+        adapter = new EventListAdapter(getApplicationContext(), _id,EventTitle, Url, Clubname, DateEvent);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
@@ -90,12 +92,13 @@ public class Card_list_View_Admins extends AppCompatActivity {
         //Get Request to render all the events.
         GetRequestToTheAdminSideEventCardView();
 
-//        CreateEvents.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                PostRequestToCreateANewEvents();
-//            }
-//        });
+        CreateEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Pop.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void PostRequestToCreateANewEvents() {
@@ -124,7 +127,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
 
                         _id.clear();
-                        EventImage.clear();
+
                         Url.clear();
                         EventTitle.clear();
                         Clubname.clear();
@@ -134,7 +137,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
                         //System.out.println(response);  //debugging purposes
                         for(int i = 0; i < response.length(); i++){
                             try {
-                                EventImage.addLast(EventImages[i]);
+
                                 //System.out.println(response.getJSONObject(i));   Debugging
 
                                 JSONObject event = response.getJSONObject(i);
