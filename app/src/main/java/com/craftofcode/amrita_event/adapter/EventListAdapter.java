@@ -57,7 +57,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
         //support for buttons
          public Button DeleteButton;
          public Button UpdateButton;
-        final EventListAdapter EventsAdapter;
+         final EventListAdapter EventsAdapter;
 
         public ItemViewHolder(View EventView, EventListAdapter EventsAdapter){
             super(EventView);
@@ -105,6 +105,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                 @Override
                 public void onClick(View v) {
                     Log.d("mess", String.valueOf(getAdapterPosition()));
+                    final View builderView ;
                 }
             });
         }

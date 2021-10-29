@@ -1,9 +1,12 @@
 package com.craftofcode.amrita_event;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -94,7 +97,31 @@ public class Card_list_View_Admins extends AppCompatActivity {
         CreateEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final View builderView = getLayoutInflater().inflate(R.layout.update_fields, null);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(CreateEvents.getContext());
+                builder.setView(builderView);
 
+                final AlertDialog alertDialog = builder.create();
+
+                EditText ImageUrl = builderView.findViewById(R.id.ImageUrl);
+                EditText EventTitle = builderView.findViewById(R.id.Title);
+                EditText Caption = builderView.findViewById(R.id.Caption);
+                EditText Description = builderView.findViewById(R.id.Description);
+                EditText OrganisingClub = builderView.findViewById(R.id.OrganisingClub);
+                EditText Date = builderView.findViewById(R.id.Date);
+                EditText Venue = builderView.findViewById(R.id.Venue);
+                EditText ContactDetail1 = builderView.findViewById(R.id.ContactDetail1);
+                EditText ContactDetail2 = builderView.findViewById(R.id.ContactDetail2);
+                ImageButton closeDialog = builderView.findViewById(R.id.cancel);
+
+                alertDialog.show();
+
+                closeDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
             }
         });
     }
