@@ -1,7 +1,9 @@
 package com.craftofcode.amrita_event.adapter;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,7 +48,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
     public Context context;
 
 
-     class ItemViewHolder extends RecyclerView.ViewHolder{
+    class ItemViewHolder extends RecyclerView.ViewHolder{
         public ImageView ImageEvent;
         public TextView EventTitle;
         public TextView OrgClub;
@@ -75,8 +77,27 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                     //extracting the id of the event
                     System.out.println("Position : " + getAdapterPosition()); //for debugging purposes
 
-                    //opening a delete request
-                    DeleteRequestToDeleteEvent(getAdapterPosition());
+                    //poping an alert when clicked on delete button
+                    AlertDialog.Builder deleteAlert = new AlertDialog.Builder(DeleteButton.getContext());
+                    deleteAlert.setTitle("Are you sure..!");
+                    deleteAlert.setTitle("Are you sure you want to delete this ?");
+                    //deleteAlert.setIcon(R.drawable.ic_baseline_delete_24);
+
+                    deleteAlert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //if user clicks yes then Making a delete request
+                            DeleteRequestToDeleteEvent(getAdapterPosition());
+                        }
+                    });
+                    deleteAlert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            return;
+                        }
+                    });
+
+                    deleteAlert.show();
                     //System.out.println("Done..!");
                 }
             });
@@ -129,7 +150,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                  public Map<String, String> getHeaders() throws AuthFailureError {
                      SharedPreferences Token = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
                      Map<String, String> params = new HashMap<String, String>();
-                     params.put("user-auth-token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzU0NDU2MTN9.3SBHs7GxSMLZkGrn4_RUDwo3-4MmIYxGU4wjk7Cz9vI");
+                     params.put("user-auth-token","");
                      return params;
                  }
              };
