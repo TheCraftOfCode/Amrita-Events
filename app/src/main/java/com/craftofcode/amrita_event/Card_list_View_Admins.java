@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -110,9 +111,11 @@ public class Card_list_View_Admins extends AppCompatActivity {
                 EditText OrganisingClub = builderView.findViewById(R.id.OrganisingClub);
                 EditText Date = builderView.findViewById(R.id.Date);
                 EditText Venue = builderView.findViewById(R.id.Venue);
-                EditText ContactDetail1 = builderView.findViewById(R.id.ContactDetail1);
-                EditText ContactDetail2 = builderView.findViewById(R.id.ContactDetail2);
+                EditText RegistrationLink = builderView.findViewById(R.id.RegistrationLink);
+                EditText Note = builderView.findViewById(R.id.Note);
+
                 ImageButton closeDialog = builderView.findViewById(R.id.cancel);
+                Button CreateEventButton = builderView.findViewById(R.id.CreateEventButton);
 
                 alertDialog.show();
 
@@ -122,12 +125,56 @@ public class Card_list_View_Admins extends AppCompatActivity {
                         alertDialog.dismiss();
                     }
                 });
+
+                //Creating the event
+               CreateEventButton.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       //Preparing the Json Object
+                       JSONObject CreateEventPostReqestBody = new JSONObject();
+                       try {
+                           CreateEventPostReqestBody.put("ImageUrl", ConvertEditTextContentToString(ImageUrl));
+                           CreateEventPostReqestBody.put("Title", ConvertEditTextContentToString(EventTitle));
+                           CreateEventPostReqestBody.put("Caption", ConvertEditTextContentToString(Caption));
+                           CreateEventPostReqestBody.put("Description", ConvertEditTextContentToString(Description));
+                           CreateEventPostReqestBody.put("OrganizingClub", ConvertEditTextContentToString(OrganisingClub));
+                           CreateEventPostReqestBody.put("Date", ConvertEditTextContentToString(Date));
+                           CreateEventPostReqestBody.put("Venue", ConvertEditTextContentToString(Venue));
+                           CreateEventPostReqestBody.put("RegistrationLink", ConvertEditTextContentToString(RegistrationLink));
+                           CreateEventPostReqestBody.put("Note", ConvertEditTextContentToString(Note));
+
+                           //creating an other Json Object for contact details
+                           JSONObject ContactDetails = new JSONObject();
+                           EditText ContactName1 = builderView.findViewById(R.id.ContactDetailName1);
+                           EditText ContactPhone1 = builderView.findViewById(R.id.ContactPhone1);
+                           EditText ContactName2 = builderView.findViewById(R.id.ContactDetailName2);
+                           EditText ContactPhone2 = builderView.findViewById(R.id.ContactPhone2);
+
+                           ContactDetails.put(ContactName1.getText().toString(), ContactPhone1.getText().toString());
+                           ContactDetails.put(ContactName2.getText().toString(), ContactPhone2.getText().toString());
+
+                           //putting it back in the Json Body
+                           CreateEventPostReqestBody.put("ContactDetails", ContactDetails);
+
+                           //Json Body is Now ready
+
+                       } catch (JSONException e) {
+                           e.printStackTrace();
+                       }
+
+                   }
+               });
             }
         });
     }
 
-    private void PostRequestToCreateANewEvents() {
+    public String ConvertEditTextContentToString(EditText somefield){
+        return somefield.getText().toString();
+    }
+
+    private void PostRequestToCreateANewEvents(JSONObject RequestBody) {
         //Create a a new post request
+        String PostRequestUrl = "https://amrita-events.herokuapp.com/api/admin-users-portal";
 
         //After A new event Get request should be made again
         GetRequestToTheAdminSideEventCardView();
