@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.craftofcode.amrita_event.adapter.EventListAdapter;
 import com.craftofcode.amrita_event.apiModel.MySingleton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -155,6 +157,9 @@ public class Card_list_View_Admins extends AppCompatActivity {
 
                            //putting it back in the Json Body
                            CreateEventPostReqestBody.put("ContactDetails", ContactDetails);
+                           System.out.println(CreateEventPostReqestBody);
+                           //opening a post request
+                           PostRequestToCreateANewEvents(CreateEventPostReqestBody);
 
                            //Json Body is Now ready
 
@@ -172,12 +177,33 @@ public class Card_list_View_Admins extends AppCompatActivity {
         return somefield.getText().toString();
     }
 
-    private void PostRequestToCreateANewEvents(JSONObject RequestBody) {
+    private void PostRequestToCreateANewEvents( JSONObject RequestBody) {
         //Create a a new post request
         String PostRequestUrl = "https://amrita-events.herokuapp.com/api/admin-users-portal";
+        SettingUpRequestQueue();
+        JsonObjectRequest CreateEventRequest = new JsonObjectRequest(Request.Method.POST, PostRequestUrl , RequestBody, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response);
+                String respo = response.toString();
+                Toast.makeText(getApplicationContext(), respo, Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+                params.put("user-auth-token", "");
+                return params;
+            }
+        };
 
-        //After A new event Get request should be made again
-        GetRequestToTheAdminSideEventCardView();
+        requestQueue.add(CreateEventRequest);
     }
 
     private void SettingUpRequestQueue() {
