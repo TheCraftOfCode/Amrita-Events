@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,16 +16,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Cache;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Network;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.craftofcode.amrita_event.adapter.EventListAdapter;
 import com.craftofcode.amrita_event.apiModel.MySingleton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,6 +39,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -179,19 +184,21 @@ public class Card_list_View_Admins extends AppCompatActivity {
 
     private void PostRequestToCreateANewEvents( JSONObject RequestBody) {
         //Create a a new post request
+
+        //preparing the body
+        RequestQueue requestQueue2 = Volley.newRequestQueue(this);
+        final String RequestBodyString = RequestBody.toString();
+
         String PostRequestUrl = "https://amrita-events.herokuapp.com/api/admin-users-portal";
-        SettingUpRequestQueue();
-        JsonObjectRequest CreateEventRequest = new JsonObjectRequest(Request.Method.POST, PostRequestUrl , RequestBody, new Response.Listener<JSONObject>() {
+        StringRequest CreateEventPostRequest = new StringRequest(Request.Method.POST, PostRequestUrl, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
-                System.out.println(response);
-                String respo = response.toString();
-                Toast.makeText(getApplicationContext(), respo, Toast.LENGTH_SHORT).show();
+            public void onResponse(String response) {
+                System.out.println("LOG_RESPONSE" + response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+                System.out.println("LOG_RESPONSE" + error.toString());
             }
         }) {
             @Override
@@ -201,11 +208,39 @@ public class Card_list_View_Admins extends AppCompatActivity {
                 params.put("user-auth-token", "");
                 return params;
             }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                try {
+                    return RequestBodyString == null ? null : RequestBodyString.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", RequestBodyString, "utf-8");
+                    return null;
+                }
+            }
+
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                String responseString = "";
+                if (response != null) {
+                    responseString = String.valueOf(response.statusCode);
+                }
+                return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
+            }
         };
 
-        requestQueue.add(CreateEventRequest);
-    }
+        CreateEventPostRequest.setRetryPolicy(new DefaultRetryPolicy(500000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
+        requestQueue2.add(CreateEventPostRequest);
+
+    }
     private void SettingUpRequestQueue() {
         cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); //1Mb cap
         network = new BasicNetwork(new HurlStack());
