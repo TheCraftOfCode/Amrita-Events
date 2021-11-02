@@ -1,39 +1,33 @@
 package com.craftofcode.amrita_event;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+public class club_view {
+    private String Club_name;
+    private String Club_Description;
+    private String Club_insta_id;
+    private int Club_image;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class club_view extends AppCompatActivity {
-    Button ascii, shrishti;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_club_view);
-        setupHyperlink();
-        ascii=findViewById(R.id.ASCIIbt1);
-        shrishti = findViewById(R.id.shrishtibt1);
-        ascii.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EventView_Home.class);
-                startActivity(intent);
-            }
-        });
+    public club_view(String club_name, String club_Description, String club_insta_id, int club_image) {
+        Club_name = club_name;
+        Club_Description = club_Description;
+        Club_insta_id = club_insta_id;
+        Club_image = club_image;
     }
-    private void setupHyperlink() {
-        TextView ASCIIlinkTextView = findViewById(R.id.ASCIItv3);
-        TextView srishtilinkTextView = findViewById(R.id.shrishtitv3);
-        ASCIIlinkTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        srishtilinkTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        ASCIIlinkTextView.setLinkTextColor(Color.BLUE);
-        srishtilinkTextView.setLinkTextColor(Color.BLUE);
 
+    public club_view(){}
+
+    public String getClub_name() {
+        return Club_name;
+    }
+
+    public String getClub_Description() {
+        return Club_Description;
+    }
+
+    public String getClub_insta_id() {
+        return Club_insta_id;
+    }
+
+    public int getClub_image() {
+        return Club_image;
     }
 }
