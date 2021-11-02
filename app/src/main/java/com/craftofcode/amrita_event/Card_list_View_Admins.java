@@ -83,7 +83,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
 
         //setting up the adapter
-        adapter = new EventListAdapter(getApplicationContext(), _id,EventTitle, Url, Clubname, DateEvent);
+        adapter = new EventListAdapter(getApplicationContext(), getLayoutInflater(),_id,EventTitle, Url, Clubname, DateEvent);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 

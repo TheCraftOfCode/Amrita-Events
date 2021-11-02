@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +32,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
 import com.craftofcode.amrita_event.R;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -46,6 +49,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
     private LinkedList<String> _id;
     private LayoutInflater ItemLayoutInflater;
     public Context context;
+    private LayoutInflater MainactivityInflater;
 
 
     class ItemViewHolder extends RecyclerView.ViewHolder{
@@ -105,7 +109,100 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                 @Override
                 public void onClick(View v) {
                     Log.d("mess", String.valueOf(getAdapterPosition()));
-                    final View builderView ;
+                    Context updateButton = UpdateButton.getContext();
+                    final View builderView = MainactivityInflater.inflate(R.layout.update_fields, null);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(UpdateButton.getContext());
+                    builder.setView(builderView);
+
+                    final AlertDialog alertDialog = builder.create();
+
+                    EditText ImageUrl = builderView.findViewById(R.id.ImageUrl);
+                    EditText EventTitle = builderView.findViewById(R.id.Title);
+                    EditText Caption = builderView.findViewById(R.id.Caption);
+                    EditText Description = builderView.findViewById(R.id.Description);
+                    EditText OrganisingClub = builderView.findViewById(R.id.OrganisingClub);
+                    EditText Date = builderView.findViewById(R.id.Date);
+                    EditText Venue = builderView.findViewById(R.id.Venue);
+                    EditText RegistrationLink = builderView.findViewById(R.id.RegistrationLink);
+                    EditText Note = builderView.findViewById(R.id.Note);
+                    EditText ContactName1 = builderView.findViewById(R.id.ContactDetailName1);
+                    EditText ContactPhone1 = builderView.findViewById(R.id.ContactPhone1);
+                    EditText ContactName2 = builderView.findViewById(R.id.ContactDetailName2);
+                    EditText ContactPhone2 = builderView.findViewById(R.id.ContactPhone2);
+
+                    ImageButton closeDialog = builderView.findViewById(R.id.cancel);
+                    Button CreateEventButton = builderView.findViewById(R.id.CreateEventButton);
+
+                    alertDialog.show();
+
+                    closeDialog.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alertDialog.dismiss();
+                        }
+                    });
+
+                    Map<String, String> updatedBody = new HashMap<String, String>();
+                    JSONObject UpdateRequestBody = new JSONObject();
+
+                    if(!ImageUrl.getText().toString().equals("")){
+                        updatedBody.put("ImageUrl", ImageUrl.getText().toString());
+                    }
+                    if(!EventTitle.getText().toString().equals("")){
+                        updatedBody.put("EventTitle", EventTitle.getText().toString());
+                    }
+                    if(!Caption.getText().toString().equals("")){
+                        updatedBody.put("Caption", Caption.getText().toString());
+                    }
+                    if(!Description.getText().toString().equals("")){
+                        updatedBody.put("Description", Description.getText().toString());
+                    }
+                    if(!OrganisingClub.getText().toString().equals("")){
+                        updatedBody.put("OrganisingClub", OrganisingClub.getText().toString());
+                    }
+                    if(!Date.getText().toString().equals("")){
+                        updatedBody.put("Date", Date.getText().toString());
+                    }
+                    if(!Venue.getText().toString().equals("")){
+                        updatedBody.put("Venue", Venue.getText().toString());
+                    }
+                    if(!RegistrationLink.getText().toString().equals("")){
+                        updatedBody.put("RegistrationLink", RegistrationLink.getText().toString());
+                    }
+                    if(!Note.getText().toString().equals("")){
+                        updatedBody.put("Note", Note.getText().toString());
+                    }
+                    if(!ContactName1.getText().toString().equals("")){
+                        if(!ContactPhone1.getText().toString().equals("")){
+                            try {
+                                UpdateRequestBody.put(ContactName1.getText().toString(), ContactPhone1.getText().toString());
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }
+
+                    if(!ContactName2.getText().toString().equals("")){
+                        if(!ContactPhone2.getText().toString().equals("")){
+                            try {
+                                UpdateRequestBody.put(ContactName2.getText().toString(), ContactPhone2.getText().toString());
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }
+
+                    for (Map.Entry<String, String> set : updatedBody.entrySet()){
+                        try {
+                            UpdateRequestBody.put(set.getKey(), set.getValue());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    MakingTheUpdateRequest(UpdateRequestBody);
                 }
             });
         }
@@ -160,13 +257,50 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
          }
      }
 
-    public EventListAdapter(Context context,LinkedList<String> _id, LinkedList<String> EventTitle, LinkedList<String> EventImage, LinkedList<String> OrgClub,LinkedList<String> EventDate){
+    private void MakingTheUpdateRequest(JSONObject updateRequestBody) {
+
+        Cache cache = new DiskBasedCache(context.getCacheDir(), 1024 * 1024); //1Mb cap
+        Network network = new BasicNetwork(new HurlStack());
+        RequestQueue requestQueue = new RequestQueue(cache, network);
+        requestQueue.start();
+
+
+        String UpdateUrl = "https://amrita-events.herokuapp.com/api/admin-users-portal/";
+
+        //Delete request
+        JsonObjectRequest UpdateEventRequest = new JsonObjectRequest(Request.Method.PUT, UpdateUrl, updateRequestBody, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                //Deleting that event from the view
+                System.out.println(response);
+                notifyDataSetChanged();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("wrong..!");
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                SharedPreferences Token = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("user-auth-token","");
+                return params;
+            }
+        };
+
+        requestQueue.add(UpdateEventRequest);
+    }
+
+    public EventListAdapter(Context context, LayoutInflater mainactivityinflater,LinkedList<String> _id, LinkedList<String> EventTitle, LinkedList<String> EventImage, LinkedList<String> OrgClub,LinkedList<String> EventDate){
         this._id = _id;
         this.EventTitleLinked = EventTitle;
         this.EventImage = EventImage;
         this.OrgClubLinked = OrgClub;
         this.EventDate = EventDate;
         this.context = context;
+        this.MainactivityInflater = mainactivityinflater;
     }
     @NonNull
     public EventListAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
