@@ -8,6 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_purple">#b39ddb</color>
+    <color name="dark_blue">#002366</color>
+    <color name="orange">#FA8072</color>
+    <color name="blue">#0F52BA</color>
+    <color name="sandal">#FFDAB9</color>
 
     <!-- Color Primary:  #6200EE #FF0000-->
     <!-- Color Accent:  #03DAC5 #DAA403 -->
@@ -28,5 +32,4 @@
     <color name="colorGreen">#37FF00</color>
     <color name="colorBlue">#0037FF</color>
 
-    <!-- Have to add the material colours -->
 </resources>

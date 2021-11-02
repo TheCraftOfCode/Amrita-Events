@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Club_list_view">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sandal"
+
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLUBS"
+
+            android:textColor="@color/dark_blue"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="20dp"
+            android:textSize="50dp"
+            android:id="@+id/title"
+            android:gravity="center"
+            android:foregroundGravity="center"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:id="@+id/rv"
+            android:foregroundGravity="center"/>
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>
