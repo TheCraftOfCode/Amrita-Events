@@ -2,18 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background=""
+
     android:layout_margin="15dp"
     android:weightSum="10">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:background="@color/bg_purple"
         android:layout_row="0"
         android:layout_column="0"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:elevation="20dp"
         android:clickable="true"
+        app:cardCornerRadius="40dp"
         android:foreground="?android:attr/selectableItemBackground"
         android:layout_gravity="fill">
         <RelativeLayout
@@ -23,6 +29,9 @@
             <ImageView android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="left"
+                android:padding="2dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/ic_launcher_background"
                 android:id="@+id/club_image"
                 android:layout_marginLeft="20dp"/>
             <TextView
@@ -32,6 +41,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/club_image"
                 android:layout_marginRight="10dp"
+                android:padding="30dp"
                 android:text="club_name"
                 android:textColor="@color/dark_blue"
                 android:textSize="13dp"/>
@@ -72,19 +82,18 @@
                 android:layout_toRightOf="@+id/insta"/>
 
             <Button
+                android:id="@+id/club_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/insta"
-                android:layout_marginTop="10dp"
-                android:text=" \t \t \t \t\t\t\n    Check events\t\t"
-                android:textColor="@color/black"
-
                 android:layout_marginLeft="210dp"
-                android:textSize="12dp"
-                android:id="@+id/club_button"
+                android:layout_marginTop="10dp"
+
                 android:background="@drawable/button_shape"
                 android:gravity="right"
-                />
+                android:text=" \n\t \tCheck events\t\t\n"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -92,7 +101,7 @@
                 android:layout_below="@id/club_button"/>
 
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 
