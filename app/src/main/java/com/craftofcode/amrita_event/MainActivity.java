@@ -7,11 +7,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else if(uname.equals("")&&pword.equals("")){
-            Intent intent = new Intent(this,Card_list_View_Admins.class);
+            Intent intent = new Intent(this,EventView_Home.class);
             startActivity(intent);
         }
         else {

@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="15dp"
+    android:layout_margin="5dp"
     android:weightSum="10">
 
     <com.google.android.material.card.MaterialCardView

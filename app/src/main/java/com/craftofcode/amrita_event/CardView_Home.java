@@ -2,9 +2,9 @@ package com.craftofcode.amrita_event;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +21,7 @@ public class CardView_Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_view_home);
         recyclerView = findViewById(R.id.cards_recycler);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         //dummy data while we wait for API to get ready
         EventDetailsArrayList.add(new Event_Details("Event one","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",1,"ASCII",false,1111111111));
