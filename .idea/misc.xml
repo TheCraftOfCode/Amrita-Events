@@ -8,6 +8,7 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.2421875" />
         <entry key="app/src/main/res/drawable/editable_box_shape.xml" value="0.26197916666666665" />
+        <entry key="app/src/main/res/drawable/image_shadow.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_card_list_view_admins.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/activity_card_view_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_club_view.xml" value="0.1" />
@@ -17,6 +18,7 @@
         <entry key="app/src/main/res/layout/admin_card_view.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/cards_list.xml" value="0.18" />
         <entry key="app/src/main/res/layout/form_popup_for_event_creation.xml" value="0.37092391304347827" />
+        <entry key="app/src/main/res/layout/test_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/update_fields.xml" value="0.228125" />
       </map>
     </option>
