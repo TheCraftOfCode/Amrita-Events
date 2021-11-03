@@ -12,7 +12,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:background="@color/teal_200"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="10dp"
         android:transitionName="ContainerTransform"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,14 +81,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/bg_purple"
                     android:orientation="horizontal">
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="180sp"
+                        android:layout_marginStart="220sp"
                         android:id="@+id/view_more"
                         android:textColor="@color/design_default_color_primary_dark"
                         style="?attr/borderlessButtonStyle"
