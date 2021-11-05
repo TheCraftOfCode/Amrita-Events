@@ -7,12 +7,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.2421875" />
-        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/drawable/button_shape.xml" value="0.2703125" />
         <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/activity_card_view_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/activity_club_list_view.xml" value="0.264" />
         <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/activity_club_view.xml" value="0.1" />
-        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/cards_list.xml" value="0.1" />
-        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/club_card.xml" value="0.264" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/cards_list.xml" value="0.536" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/club_card.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/editable_box_shape.xml" value="0.26197916666666665" />
         <entry key="app/src/main/res/layout/activity_card_list_view_admins.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/activity_expanded_card_admins.xml" value="0.20643363728470113" />
