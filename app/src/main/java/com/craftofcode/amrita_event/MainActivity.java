@@ -1,5 +1,8 @@
 package com.craftofcode.amrita_event;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,11 +21,14 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.craftofcode.amrita_event.apiModel.MySingleton;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,8 +66,31 @@ public class MainActivity extends AppCompatActivity {
                     StringRequest LoginUserRequest = new StringRequest(Request.Method.POST, LoginUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            System.out.println(response);
+//                            System.out.println(response);
                             Toast.makeText(getApplicationContext(), "Logged in", Toast.LENGTH_SHORT).show();
+                            SharedPreferences TOKEN = getSharedPreferences("Token", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor edit = TOKEN.edit();
+
+                            edit.putString("user-auth-token", response);
+                            edit.commit();
+
+                            //decoding the json web token
+                            String[] chunks = response.split("\\.");
+                            Base64.Decoder decoder = Base64.getDecoder();
+                            String payload = new String(decoder.decode(chunks[1]));
+
+                            JSONObject TokenBody = new JSONObject();
+                            JsonObject jsonObject = (JsonObject) new JsonParser().parseString(payload);
+//                            System.out.println(jsonObject.get("isAdmin"));
+                            if(jsonObject.get("isAdmin").toString().equals("true")){
+                                Intent intent = new Intent(getApplicationContext(), Card_list_View_Admins.class);
+                                startActivity(intent);
+                            }else if(jsonObject.get("isAdmin").toString().equals("false")){
+                                Intent intent = new Intent(getApplicationContext(), CardView_Home.class);
+                                startActivity(intent);
+                            }else{
+                                return;
+                            }
                         }
                     }, new Response.ErrorListener() {
                         @Override
