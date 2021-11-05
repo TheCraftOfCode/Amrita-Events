@@ -42,10 +42,10 @@ public class CardView_Home extends AppCompatActivity {
 
 
         // Api call is being made Here
-        String AdminUsersEventsEndpoint = "https://amrita-events.herokuapp.com/api/admin-users-portal";
+        String EventsEndpoint = "https://amrita-events.herokuapp.com/api/all-events";
 
         JsonArrayRequest EventCardRequest = new JsonArrayRequest
-                (Request.Method.GET, AdminUsersEventsEndpoint, null, new Response.Listener<JSONArray>() {
+                (Request.Method.GET, EventsEndpoint, null, new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
@@ -74,7 +74,7 @@ public class CardView_Home extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
-                        System.out.println("This is in error..!");
+                        System.out.println("There has been an error.");
                         System.out.println(error);
                     }
                 }) {
