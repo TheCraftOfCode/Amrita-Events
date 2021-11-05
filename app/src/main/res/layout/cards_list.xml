@@ -1,4 +1,3 @@
-
 <!--Card View -->
 <LinearLayout
     android:layout_width="match_parent"
@@ -11,95 +10,76 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
-        android:background="@color/teal_200"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="0dp"
         android:transitionName="ContainerTransform"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="0dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
             <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="194dp"
-                android:id="@+id/event_image"
-                app:srcCompat="@drawable/ic_launcher_background"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="500dp"
                 android:scaleType="centerCrop"
-                />
+                app:srcCompat="@drawable/cse_club" />
 
-            <LinearLayout
-                android:background="@color/bg_purple"
+            <View android:id="@+id/view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:id="@+id/title"
-                    android:textColor="@color/design_default_color_primary_dark"
-                    android:textAppearance="?attr/textAppearanceHeadline4"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:id="@+id/club"
-                    android:text="@string/club"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/design_default_color_primary_dark"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:id="@+id/date"
-                    android:text="@string/supporting_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/design_default_color_primary_dark"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:id="@+id/time"
-                    android:text="@string/supporting_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/design_default_color_primary_dark"
-                    />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/bg_purple"
-                    android:orientation="horizontal">
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="220sp"
-                        android:id="@+id/view_more"
-                        android:textColor="@color/design_default_color_primary_dark"
-                        style="?attr/borderlessButtonStyle"
-                        android:text="@string/more"
-                        />
-                </LinearLayout>
-
-            </LinearLayout>
+                android:layout_height="500dp"
+                android:background="@drawable/image_shadow"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <!-- Buttons -->
-        </LinearLayout>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/title"
+                        android:layout_marginTop="405sp"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/title"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/club"
+                        android:layout_marginTop="0sp"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/club"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <Button
+                    android:id="@+id/view_more"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="560sp"
+                    android:layout_marginStart="210sp"
+                    android:text="@string/more"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -64,13 +64,13 @@ public class EventView_Home extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         Bundle importFromCards = getIntent().getExtras();
-        name = importFromCards.getString("name");
+        String name = importFromCards.getString("name");
         String club = importFromCards.getString("club");
         description = importFromCards.getString("description");
         String date = importFromCards.getString("date");
         String time = importFromCards.getString("time");
         String phone = importFromCards.getString("phone");
-        String eventID = importFromCards.getString("id");
+        int eventID = importFromCards.getInt("id");
         boolean eventStatus = Boolean.parseBoolean(importFromCards.getString("status"));
         datetimeString =date+" "+time;
         try {
