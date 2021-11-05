@@ -82,7 +82,7 @@ public class CardView_Home extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-                params.put("user-auth-token", TOKEN.getString("user-auth-token","Thief..!"));
+                params.put("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTg1NTM2MGI5MWI0YjAwMDQxNTcxZjAiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwMzgiLCJpYXQiOjE2MzYxMjc2MTF9.yCho08MtlUfaDj5BTYcE1UJc6X4fWmT6nOd_G_7rPbk");
                 return params;
             }
         };

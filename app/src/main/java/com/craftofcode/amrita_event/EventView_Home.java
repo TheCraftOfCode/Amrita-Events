@@ -68,11 +68,11 @@ public class EventView_Home extends AppCompatActivity {
         String club = importFromCards.getString("club");
         description = importFromCards.getString("description");
         String date = importFromCards.getString("date");
-        String time = importFromCards.getString("time");
+        //String time = importFromCards.getString("time");
         String phone = importFromCards.getString("phone");
-        int eventID = importFromCards.getInt("id");
-        boolean eventStatus = Boolean.parseBoolean(importFromCards.getString("status"));
-        datetimeString =date+" "+time;
+        String eventID = importFromCards.getString("_id");
+        //boolean eventStatus = Boolean.parseBoolean(importFromCards.getString("status"));
+        //datetimeString =date+" "+time;
         try {
             dateDate = formatter.parse(datetimeString);
         } catch (ParseException e) {
@@ -95,7 +95,7 @@ public class EventView_Home extends AppCompatActivity {
         eventDescription.setText(description);
         eventClub.setText(club);
         eventDate.setText(date);
-        eventTime.setText(time);
+        //eventTime.setText(time);
         eventPhone.setText(phone);
 
     }
