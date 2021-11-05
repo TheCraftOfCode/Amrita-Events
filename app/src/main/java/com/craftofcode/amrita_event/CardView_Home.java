@@ -82,7 +82,7 @@ public class CardView_Home extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-                params.put("user-auth-token", TOKEN.getString("user-auth-token","Theif..!"));
+                params.put("user-auth-token", TOKEN.getString("user-auth-token","Thief..!"));
                 return params;
             }
         };
@@ -104,7 +104,7 @@ public class CardView_Home extends AppCompatActivity {
             Log.d("Printing", String.valueOf(EventDetailsArrayList.get(i)));
         }
         recyclerView.setAdapter(eventDetails);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
 
     }
 

@@ -12,7 +12,8 @@
         android:id="@+id/card"
         app:cardCornerRadius="0dp"
         android:transitionName="ContainerTransform"
-        android:layout_width="wrap_content"
+        android:scrollbars="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="0dp">
 
@@ -73,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="560sp"
-                    android:layout_marginStart="210sp"
+                    android:layout_marginStart="20sp"
                     android:text="@string/more"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
