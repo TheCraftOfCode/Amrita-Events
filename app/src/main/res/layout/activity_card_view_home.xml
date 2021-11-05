@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:paddingStart="22dp"
+        android:paddingStart="16dp"
         android:paddingEnd="22dp"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintVertical_bias=".3"
