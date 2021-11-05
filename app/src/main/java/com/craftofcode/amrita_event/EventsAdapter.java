@@ -39,8 +39,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
         Event_Details event = eventDetailsArrayList.get(position);
         holder.eventName.setText(event.getEvent_name());
         holder.eventClub.setText(event.getEvent_club());
-        holder.eventDate.setText(event.getEvent_date());
-        holder.eventTime.setText(event.getEvent_time());
     }
 
     @Override
@@ -52,7 +50,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     // View holder class for initializing of your views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
         public View v;
-        private TextView eventName, eventClub, eventDate, eventTime;
+        private TextView eventName, eventClub;
         final EventsAdapter adapter;
         private Button view_more;
 
@@ -61,8 +59,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
             super(itemView);
             eventName = itemView.findViewById(R.id.title);
             eventClub = itemView.findViewById(R.id.club);
-            eventDate = itemView.findViewById(R.id.date);
-            eventTime = itemView.findViewById(R.id.time);
             view_more = itemView.findViewById(R.id.view_more);
             this.adapter = adapter;
             this.v = itemView;
