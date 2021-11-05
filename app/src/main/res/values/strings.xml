@@ -108,4 +108,5 @@
     <string name="supporting_text">Date</string>
     <string name="update">Update</string>
     <string name="more"><![CDATA[More >]]></string>
+    <string name="enter_your_name">Enter your name</string>
 </resources>
