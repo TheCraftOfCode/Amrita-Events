@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -96,7 +97,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         SharedPreferences.Editor edit = TOKEN.edit();
 
         //pushing token to shared preference
-        edit.putString("user-auth-token", "");
+        edit.putString("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzYxMjkyNDd9.j8r-vbGbkK3_Z60Zzv9B9tyFoXdqYNrF14E1fP6ehAo");
         edit.commit();
 
         //Get Request to render all the events.
@@ -194,6 +195,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 System.out.println("LOG_RESPONSE" + response);
+                Toast.makeText(getApplicationContext(), "Event Successfully Created", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -205,7 +207,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-                params.put("user-auth-token", "");
+                params.put("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzYxMjkyNDd9.j8r-vbGbkK3_Z60Zzv9B9tyFoXdqYNrF14E1fP6ehAo");
                 return params;
             }
 

@@ -1,6 +1,5 @@
 package com.craftofcode.amrita_event.adapter;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -248,7 +247,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                  public Map<String, String> getHeaders() throws AuthFailureError {
                      SharedPreferences Token = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
                      Map<String, String> params = new HashMap<String, String>();
-                     params.put("user-auth-token","");
+                     params.put("user-auth-token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzYxMjkyNDd9.j8r-vbGbkK3_Z60Zzv9B9tyFoXdqYNrF14E1fP6ehAo");
                      return params;
                  }
              };
@@ -285,7 +284,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
             public Map<String, String> getHeaders() throws AuthFailureError {
                 SharedPreferences Token = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("user-auth-token","");
+                params.put("user-auth-token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzYxMjkyNDd9.j8r-vbGbkK3_Z60Zzv9B9tyFoXdqYNrF14E1fP6ehAo");
                 return params;
             }
         };
