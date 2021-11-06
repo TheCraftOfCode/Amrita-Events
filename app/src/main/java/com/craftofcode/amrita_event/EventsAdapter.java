@@ -6,11 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -34,11 +36,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     }
 
     @Override
-    public void onBindViewHolder(EventsAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(Viewholder holder, int position) {
         // to set data to textview and imageview of each card layout
         Event_Details event = eventDetailsArrayList.get(position);
         holder.eventName.setText(event.getEvent_name());
         holder.eventClub.setText(event.getEvent_club());
+        Picasso.get().load(eventDetailsArrayList.get(position).getEvent_image()).into(holder.imageURL);
     }
 
     @Override
@@ -51,25 +54,25 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     public class Viewholder extends RecyclerView.ViewHolder {
         public View v;
         private TextView eventName, eventClub;
+        private ImageView imageURL;
         final EventsAdapter adapter;
-        private Button view_more;
 
 
         public Viewholder(View itemView,EventsAdapter adapter) {
             super(itemView);
             eventName = itemView.findViewById(R.id.title);
             eventClub = itemView.findViewById(R.id.club);
-            view_more = itemView.findViewById(R.id.view_more);
+            imageURL = itemView.findViewById(R.id.imageView);
             this.adapter = adapter;
             this.v = itemView;
 
-            view_more.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     Log.d("onClick: ","Item has been clicked");
                     int position = getAdapterPosition();
                     Intent intent = new Intent(context,EventView_Home.class);
                     intent.putExtra("id",eventDetailsArrayList.get(position).getEvent_id());
-                    intent.putExtra("status",eventDetailsArrayList.get(position).getEvent_status());
+                    intent.putExtra("url",eventDetailsArrayList.get(position).getEvent_image());
                     intent.putExtra("name",eventDetailsArrayList.get(position).getEvent_name());
                     intent.putExtra("club",eventDetailsArrayList.get(position).getEvent_club());
                     intent.putExtra("date",eventDetailsArrayList.get(position).getEvent_date());

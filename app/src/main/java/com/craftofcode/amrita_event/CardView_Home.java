@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +35,6 @@ public class CardView_Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_view_home);
         recyclerView = findViewById(R.id.cards_recycler);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         EventsAdapter eventDetails = new EventsAdapter(this,EventDetailsArrayList);
         //Opening the Get request
 
@@ -60,7 +58,7 @@ public class CardView_Home extends AppCompatActivity {
 
                                 JSONObject event = response.getJSONObject(i);
                                 System.out.println("response" + event);
-                                //EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),event.get("Date").toString(),"05:30 PM - 06:30 PM",1 , event.get("OrganizingClub").toString(),false,1111111111);
+                                EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),event.get("Date").toString(),"05:30 PM - 06:30 PM",event.get("_id").toString() , event.get("OrganizingClub").toString(),event.get("ImageUrl").toString(),1111111111));
 
 
                             } catch (JSONException e) {
@@ -89,15 +87,6 @@ public class CardView_Home extends AppCompatActivity {
 
         //adding the request to Queue
         MySingleton.getInstance(this).addToRequestQueue(EventCardRequest);
-
-
-
-        //dummy data while we wait for API to get ready
-        EventDetailsArrayList.add(new Event_Details("Event one","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",1,"ASCII",false,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event two","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",2,"GDSC",true,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event three","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",3,"NSS",false,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event four","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",4,"Srishti",false,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event five","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",5,"Anantham",false,1111111111));
 
 
         for(int i = 0; i<EventDetailsArrayList.size();i++){

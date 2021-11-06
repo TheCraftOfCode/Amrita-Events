@@ -1,7 +1,7 @@
 <!--Card View -->
 <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_height="450dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -11,6 +11,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         app:cardCornerRadius="0dp"
+        android:clickable="true"
         android:transitionName="ContainerTransform"
         android:scrollbars="horizontal"
         android:layout_width="match_parent"
@@ -51,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/title"
-                        android:layout_marginTop="500sp"
+                        android:layout_marginTop="360sp"
                         android:layout_marginStart="10dp"
                         android:text="@string/title"
                         android:textColor="@color/white"
@@ -62,23 +63,13 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/club"
                         android:layout_marginTop="0sp"
-                        android:layout_marginStart="15dp"
+                        android:layout_marginStart="10dp"
                         android:text="@string/club"
                         android:textColor="@color/white"
                         android:textSize="20sp"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <Button
-                    android:id="@+id/view_more"
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="540sp"
-                    android:layout_marginStart="80sp"
-                    android:text="@string/more"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
