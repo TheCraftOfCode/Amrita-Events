@@ -10,6 +10,7 @@
         android:id="@+id/card"
         app:cardCornerRadius="0dp"
         android:scrollbars="horizontal"
+        app:cardElevation="6dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="0dp">
@@ -22,49 +23,50 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
                 android:layout_width="280dp"
-                android:layout_height="400dp"
-                android:scaleType="center"
+                android:layout_height="350dp"
+                android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/cse_club" />
 
 
             <!-- Buttons -->
-
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageView"
-                android:background="@color/background"
-                android:backgroundTint="#5c4a76"
+                android:background="@drawable/image_shadow"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/title"
-                    android:textAlignment="center"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textColor="@color/white"
-                    android:textSize="40sp"
+                    android:textSize="35sp"
                     app:layout_constraintTop_toBottomOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/club"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="0sp"
+                    android:layout_marginBottom="20dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="@string/club"
-                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </RelativeLayout>
-
 
     </com.google.android.material.card.MaterialCardView>
 

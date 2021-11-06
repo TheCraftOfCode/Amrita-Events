@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
@@ -15,13 +16,13 @@
         <ImageView
             android:id="@+id/event_poster"
             android:layout_width="match_parent"
-            android:layout_height="660sp"
+            android:layout_height="450sp"
             android:contentDescription="@string/poster_content_description"
             android:paddingBottom="16sp"
             android:src="@drawable/cse_club"
-            android:scaleType="center"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
-            app:layout_constraintBottom_toTopOf="@id/event_heading"
+            app:layout_constraintBottom_toTopOf="@id/linear_layout"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -29,21 +30,44 @@
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
-            android:id="@+id/event_heading"
+        <RelativeLayout
+            android:id="@+id/linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="14sp"
-            android:paddingEnd="16sp"
-            android:paddingBottom="8sp"
-            android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@+id/event_description_heading"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/event_poster"
             app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:id="@+id/event_name_text"
+                android:paddingStart="10sp"
+                android:paddingEnd="30sp"
+                android:paddingBottom="20sp"
+                android:text="Event name: "/>
+
+            <TextView
+                android:id="@+id/event_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/event_name_text"
+                android:paddingTop="40sp"
+                android:paddingStart="14sp"
+                android:paddingEnd="16sp"
+                android:paddingBottom="8sp"
+                android:textSize="40sp" />
+
+
+
+        </RelativeLayout>
+
+
 
         <TextView
             android:id="@+id/event_club"
@@ -57,7 +81,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/event_heading"
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed"/>
 
