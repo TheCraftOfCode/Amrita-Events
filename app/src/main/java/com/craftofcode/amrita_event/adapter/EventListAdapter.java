@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -144,34 +146,34 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                     Map<String, String> updatedBody = new HashMap<String, String>();
                     JSONObject UpdateRequestBody = new JSONObject();
 
-                    if(!ImageUrl.getText().toString().equals("")){
+                    if(ImageUrl.getText().toString().length() != 0){
                         updatedBody.put("ImageUrl", ImageUrl.getText().toString());
                     }
-                    if(!EventTitle.getText().toString().equals("")){
+                    if(EventTitle.getText().toString().length() != 0){
                         updatedBody.put("EventTitle", EventTitle.getText().toString());
                     }
-                    if(!Caption.getText().toString().equals("")){
+                    if(Caption.getText().toString().length() != 0){
                         updatedBody.put("Caption", Caption.getText().toString());
                     }
-                    if(!Description.getText().toString().equals("")){
+                    if(Description.getText().toString().length() != 0){
                         updatedBody.put("Description", Description.getText().toString());
                     }
-                    if(!OrganisingClub.getText().toString().equals("")){
+                    if(OrganisingClub.getText().toString().length() != 0){
                         updatedBody.put("OrganisingClub", OrganisingClub.getText().toString());
                     }
-                    if(!Date.getText().toString().equals("")){
+                    if(Date.getText().toString().length() != 0){
                         updatedBody.put("Date", Date.getText().toString());
                     }
-                    if(!Venue.getText().toString().equals("")){
+                    if(Venue.getText().toString().length() != 0){
                         updatedBody.put("Venue", Venue.getText().toString());
                     }
-                    if(!RegistrationLink.getText().toString().equals("")){
+                    if(RegistrationLink.getText().toString().length() != 0){
                         updatedBody.put("RegistrationLink", RegistrationLink.getText().toString());
                     }
-                    if(!Note.getText().toString().equals("")){
+                    if(Note.getText().toString().length() != 0){
                         updatedBody.put("Note", Note.getText().toString());
                     }
-                    if(!ContactName1.getText().toString().equals("")){
+                    if(ContactName1.getText().toString().length() != 0){
                         if(!ContactPhone1.getText().toString().equals("")){
                             try {
                                 UpdateRequestBody.put(ContactName1.getText().toString(), ContactPhone1.getText().toString());
@@ -182,7 +184,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                         }
                     }
 
-                    if(!ContactName2.getText().toString().equals("")){
+                    if(ContactName2.getText().toString().length() != 0){
                         if(!ContactPhone2.getText().toString().equals("")){
                             try {
                                 UpdateRequestBody.put(ContactName2.getText().toString(), ContactPhone2.getText().toString());
@@ -326,5 +328,14 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
     @Override
     public int getItemCount() {
         return EventTitleLinked.size();
+    }
+
+    public boolean handleKeyEvent(View view, int KeyCode){
+        if(KeyCode == KeyEvent.KEYCODE_ENTER){
+            InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            return true;
+        }
+        return false;
     }
 }
