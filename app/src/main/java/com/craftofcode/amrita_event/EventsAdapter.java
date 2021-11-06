@@ -50,6 +50,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     // View holder class for initializing of your views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
         public View v;
+
         private TextView eventName, eventClub;
         final EventsAdapter adapter;
         private Button view_more;

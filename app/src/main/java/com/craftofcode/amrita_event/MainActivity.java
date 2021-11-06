@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CardView_Home.class);
             startActivity(intent);
         } else if (uname.equals("username2") && pword.equals("password2")) {
-            Intent intent = new Intent(this, club_view.class);
+            Intent intent = new Intent(this, Club_list.class);
             startActivity(intent);
         }
         else if(uname.equals("")&&pword.equals("")){

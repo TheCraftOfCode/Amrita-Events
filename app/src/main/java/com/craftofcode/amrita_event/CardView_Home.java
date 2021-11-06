@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +35,7 @@ public class CardView_Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_view_home);
         recyclerView = findViewById(R.id.cards_recycler);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         EventsAdapter eventDetails = new EventsAdapter(this,EventDetailsArrayList);
         //Opening the Get request
 
