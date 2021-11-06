@@ -35,16 +35,15 @@ public class CardView_Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_view_home);
         recyclerView = findViewById(R.id.cards_recycler);
-
         EventsAdapter eventDetails = new EventsAdapter(this,EventDetailsArrayList);
         //Opening the Get request
 
 
         // Api call is being made Here
-        String AdminUsersEventsEndpoint = "https://amrita-events.herokuapp.com/api/admin-users-portal";
+        String EventsEndpoint = "https://amrita-events.herokuapp.com/api/all-events";
 
         JsonArrayRequest EventCardRequest = new JsonArrayRequest
-                (Request.Method.GET, AdminUsersEventsEndpoint, null, new Response.Listener<JSONArray>() {
+                (Request.Method.GET, EventsEndpoint, null, new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
@@ -59,7 +58,7 @@ public class CardView_Home extends AppCompatActivity {
 
                                 JSONObject event = response.getJSONObject(i);
                                 System.out.println("response" + event);
-                                //EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),event.get("Date").toString(),"05:30 PM - 06:30 PM",1 , event.get("OrganizingClub").toString(),false,1111111111);
+                                EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),event.get("Date").toString(),"05:30 PM - 06:30 PM",event.get("_id").toString() , event.get("OrganizingClub").toString(),event.get("ImageUrl").toString(),1111111111));
 
 
                             } catch (JSONException e) {
@@ -73,7 +72,7 @@ public class CardView_Home extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
-                        System.out.println("This is in error..!");
+                        System.out.println("There has been an error.");
                         System.out.println(error);
                     }
                 }) {
@@ -81,7 +80,7 @@ public class CardView_Home extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-                params.put("user-auth-token", TOKEN.getString("user-auth-token","Theif..!"));
+                params.put("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTg1NTM2MGI5MWI0YjAwMDQxNTcxZjAiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwMzgiLCJpYXQiOjE2MzYxMjc2MTF9.yCho08MtlUfaDj5BTYcE1UJc6X4fWmT6nOd_G_7rPbk");
                 return params;
             }
         };
@@ -90,20 +89,11 @@ public class CardView_Home extends AppCompatActivity {
         MySingleton.getInstance(this).addToRequestQueue(EventCardRequest);
 
 
-
-        //dummy data while we wait for API to get ready
-        EventDetailsArrayList.add(new Event_Details("Event one","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",1,"ASCII",false,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event two","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",2,"GDSC",true,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event three","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",3,"NSS",false,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event four","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",4,"Srishti",false,1111111111));
-        EventDetailsArrayList.add(new Event_Details("Event five","This is an awesome event","12-08-2021","05:30 PM - 06:30 PM",5,"Anantham",false,1111111111));
-
-
         for(int i = 0; i<EventDetailsArrayList.size();i++){
             Log.d("Printing", String.valueOf(EventDetailsArrayList.get(i)));
         }
         recyclerView.setAdapter(eventDetails);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
 
     }
 

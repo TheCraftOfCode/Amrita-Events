@@ -4,21 +4,21 @@ public class Event_Details {
 
     private String event_name;
     private String event_description;
-    private int event_id;
+    private String event_id;
     private String event_date;
     private String event_time;
     private String event_club;
-    private boolean event_status;
     private long event_phone;
+    private String image_url;
 
-    public Event_Details(String name, String description, String date, String time, int id,String club, boolean status, long phone){
+    public Event_Details(String name, String description, String date, String time, String id,String club, String url, long phone){
         event_id = id;
         event_date = date;
         event_description = description;
         event_name = name;
         event_club = club;
         event_time = time;
-        event_status = status;
+        image_url = url;
         event_phone = phone;
     }
 
@@ -38,7 +38,7 @@ public class Event_Details {
         return event_time;
     }
 
-    public int getEvent_id(){
+    public String getEvent_id(){
         return event_id;
     }
 
@@ -46,8 +46,8 @@ public class Event_Details {
         return event_club;
     }
 
-    public boolean getEvent_status() {
-        return event_status;
+    public String getEvent_image() {
+        return image_url;
     }
 
     public long getEvent_phone(){

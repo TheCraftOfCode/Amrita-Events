@@ -1,86 +1,71 @@
 <!--Card View -->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_margin="5dp"
-    android:weightSum="10">
+    android:layout_margin="5dp">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         app:cardCornerRadius="0dp"
-        android:transitionName="ContainerTransform"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="0dp">
 
-            <!-- Media -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Media-->
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="500dp"
-                android:scaleType="centerCrop"
+                android:layout_width="280dp"
+                android:layout_height="400dp"
+                android:scaleType="center"
+                android:adjustViewBounds="true"
                 app:srcCompat="@drawable/cse_club" />
 
-            <View android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:background="@drawable/image_shadow"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <!-- Buttons -->
+
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_gravity="end"
-                android:layout_height="wrap_content">
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView"
+                android:background="@color/background"
+                android:backgroundTint="#5c4a76"
+                android:orientation="vertical">
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/title"
-                        android:layout_marginTop="405sp"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/title"
-                        android:textColor="@color/white"
-                        android:textSize="40sp"/>
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/club"
-                        android:layout_marginTop="0sp"
-                        android:layout_marginStart="15dp"
-                        android:text="@string/club"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"/>
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-                <Button
-                    android:id="@+id/view_more"
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="560sp"
-                    android:layout_marginStart="210sp"
-                    android:text="@string/more"
+                    android:layout_marginStart="0dp"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/title"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="20sp"/>
+                    android:textSize="40sp"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/club"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0sp"
+                    android:text="@string/club"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </RelativeLayout>
 
 
     </com.google.android.material.card.MaterialCardView>
 
-</LinearLayout>
+</RelativeLayout>

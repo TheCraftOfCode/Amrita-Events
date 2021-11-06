@@ -9,12 +9,14 @@ import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
+
+import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,10 +28,12 @@ public class EventView_Home extends AppCompatActivity {
 
     public EventView_Home(){}
 
-    String name,description;
     Date dateDate;
     SimpleDateFormat formatter=new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
     String datetimeString = "31-Nov-2021 23:37:50";
+
+    String name = "";
+    String description = "";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -61,18 +65,17 @@ public class EventView_Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_view_home);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         Bundle importFromCards = getIntent().getExtras();
-        String name = importFromCards.getString("name");
-        String club = importFromCards.getString("club");
-        description = importFromCards.getString("description");
-        String date = importFromCards.getString("date");
-        String time = importFromCards.getString("time");
-        String phone = importFromCards.getString("phone");
-        int eventID = importFromCards.getInt("id");
-        boolean eventStatus = Boolean.parseBoolean(importFromCards.getString("status"));
-        datetimeString =date+" "+time;
+
+        String club = "";
+        String date = "";
+        //String time = importFromCards.getString("time");
+        String url = "";
+        String phone = "";
+        String eventID = "";
+        //boolean eventStatus = Boolean.parseBoolean(importFromCards.getString("status"));
+        //datetimeString =date+" "+time;
         try {
             dateDate = formatter.parse(datetimeString);
         } catch (ParseException e) {
@@ -81,13 +84,25 @@ public class EventView_Home extends AppCompatActivity {
 
 
         TextView eventTitle, eventDescription, eventDate, eventTime, eventPhone, eventClub;
+        ImageView eventImage;
 
         eventTitle = findViewById(R.id.event_heading);
         eventDescription = findViewById(R.id.event_description);
         eventDate = findViewById(R.id.event_date);
-        eventTime = findViewById(R.id.event_time);
+        //eventTime = findViewById(R.id.event_time);
         eventPhone = findViewById(R.id.event_phone);
         eventClub = findViewById(R.id.event_club);
+        eventImage = findViewById(R.id.event_poster);
+
+
+        name = importFromCards.getString("name");
+        club = importFromCards.getString("club");
+        description = importFromCards.getString("description");
+        date = importFromCards.getString("date");
+        url = importFromCards.getString("url");
+        phone = importFromCards.getString("phone");
+        eventID = importFromCards.getString("_id");
+
 
         Log.d("message", "Intent called");
 
@@ -95,8 +110,10 @@ public class EventView_Home extends AppCompatActivity {
         eventDescription.setText(description);
         eventClub.setText(club);
         eventDate.setText(date);
-        eventTime.setText(time);
+        //eventTime.setText(time);
         eventPhone.setText(phone);
+        Picasso.get().load(url).into(eventImage);
+
 
     }
 

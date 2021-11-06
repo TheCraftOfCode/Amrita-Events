@@ -1,6 +1,5 @@
 package com.craftofcode.amrita_event.adapter;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -202,7 +201,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                         }
                     }
 
-                    MakingTheUpdateRequest(UpdateRequestBody);
+                    MakingTheUpdateRequest(UpdateRequestBody, getAdapterPosition());
                 }
             });
         }
@@ -246,9 +245,9 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
              }) {
                  @Override
                  public Map<String, String> getHeaders() throws AuthFailureError {
-                     SharedPreferences Token = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+                     SharedPreferences Token = context.getSharedPreferences("Token", Context.MODE_PRIVATE);
                      Map<String, String> params = new HashMap<String, String>();
-                     params.put("user-auth-token","");
+                     params.put("user-auth-token",Token.getString("user-auth-token","Theif...!"));
                      return params;
                  }
              };
@@ -257,7 +256,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
          }
      }
 
-    private void MakingTheUpdateRequest(JSONObject updateRequestBody) {
+    private void MakingTheUpdateRequest(JSONObject updateRequestBody, int AdapterPosition) {
 
         Cache cache = new DiskBasedCache(context.getCacheDir(), 1024 * 1024); //1Mb cap
         Network network = new BasicNetwork(new HurlStack());
@@ -265,7 +264,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
         requestQueue.start();
 
 
-        String UpdateUrl = "https://amrita-events.herokuapp.com/api/admin-users-portal/";
+        String UpdateUrl = "https://amrita-events.herokuapp.com/api/admin-users-portal/" + _id.get(AdapterPosition);
 
         //Delete request
         JsonObjectRequest UpdateEventRequest = new JsonObjectRequest(Request.Method.PUT, UpdateUrl, updateRequestBody, new Response.Listener<JSONObject>() {
@@ -283,9 +282,9 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
         }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                SharedPreferences Token = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+                SharedPreferences Token = context.getSharedPreferences("Token", Context.MODE_PRIVATE);
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("user-auth-token","");
+                params.put("user-auth-token", Token.getString("user-auth-token", "Thief...!"));
                 return params;
             }
         };
