@@ -1,7 +1,6 @@
 package com.craftofcode.amrita_event;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -201,8 +200,8 @@ public class Card_list_View_Admins extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-                params.put("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzYxMjkyNDd9.j8r-vbGbkK3_Z60Zzv9B9tyFoXdqYNrF14E1fP6ehAo");
+                SharedPreferences Token = getSharedPreferences("Token",MODE_PRIVATE);
+                params.put("user-auth-token", Token.getString("user-auth-token","Theif..!"));
                 return params;
             }
 
