@@ -95,13 +95,6 @@ public class Card_list_View_Admins extends AppCompatActivity {
         // setting up the Request Queue
         SettingUpRequestQueue();
 
-        SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = TOKEN.edit();
-
-        //pushing token to shared preference
-        edit.putString("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTIxM2YyNmUzNmZhMjAwMDRlZjM0MDUiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwNjMiLCJpYXQiOjE2MzYxMjkyNDd9.j8r-vbGbkK3_Z60Zzv9B9tyFoXdqYNrF14E1fP6ehAo");
-        edit.commit();
-
         //Get Request to render all the events.
         GetRequestToTheAdminSideEventCardView();
 
@@ -304,8 +297,8 @@ public class Card_list_View_Admins extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-                params.put("user-auth-token", TOKEN.getString("user-auth-token","Theif..!"));
+                SharedPreferences Token = getSharedPreferences("Token",MODE_PRIVATE);
+                params.put("user-auth-token", Token.getString("user-auth-token","Theif..!"));
                 return params;
             }
         };
