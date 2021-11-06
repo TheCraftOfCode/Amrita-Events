@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
-                    android:fontFamily="@font/raleway_thin"
+                    android:fontFamily="@font/raleway_medium"
                     android:text="@string/title"
                     android:textAlignment="center"
                     android:textColor="@color/white"
