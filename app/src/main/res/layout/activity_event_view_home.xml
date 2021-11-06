@@ -45,11 +45,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
+                android:paddingTop="40dp"
                 android:id="@+id/event_name_text"
                 android:paddingStart="10sp"
-                android:paddingEnd="30sp"
-                android:paddingBottom="20sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="15sp"
                 android:text="Event name: "/>
 
             <TextView
@@ -57,15 +57,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/event_name_text"
-                android:paddingTop="40sp"
+                android:paddingTop="50sp"
                 android:paddingStart="14sp"
                 android:paddingEnd="16sp"
                 android:paddingBottom="8sp"
                 android:textSize="40sp" />
 
+            <TextView
+            android:layout_width="wrap_content"
+            android:paddingStart="10sp"
+            android:paddingEnd="10dp"
+            android:paddingTop="20dp"
+            android:layout_below="@id/event_heading"
+            android:layout_height="wrap_content"
+            android:text="Organised by: "/>
 
 
         </RelativeLayout>
+
+
 
 
 
@@ -89,10 +99,10 @@
             android:id="@+id/event_description_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20sp"
-            android:paddingEnd="16sp"
+            android:paddingStart="10sp"
+            android:paddingTop="10sp"
+            android:paddingEnd="10sp"
             android:text="@string/event_description_heading"
-            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@id/event_description"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -105,9 +115,11 @@
             android:id="@+id/event_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:textSize="20sp"
+            android:lineHeight="25sp"
             app:layout_constraintVertical_bias="0.1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -118,11 +130,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20sp"
-            android:paddingStart="20sp"
-            android:paddingEnd="16sp"
-            android:text="Date and Time"
-            android:textSize="25sp"
+            android:paddingTop="30sp"
+            android:paddingStart="10sp"
+            android:paddingEnd="10sp"
+            android:text="Date: "
             app:layout_constraintBottom_toTopOf="@id/event_date"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -135,41 +146,72 @@
             android:layout_height="wrap_content"
             android:id="@+id/event_date"
             android:text="Sample date"
-            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintVertical_bias="0.1"
             android:paddingStart="20sp"
             android:paddingEnd="16sp"
             app:layout_constraintTop_toBottomOf="@id/event_description"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/event_time"
-            android:textSize="20sp"/>
+            app:layout_constraintBottom_toTopOf="@+id/event_time_text"
+            android:textSize="25sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_time_text"
+            android:text="Event time: "
+            app:layout_constraintBottom_toTopOf="@id/event_time"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_date"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingStart="10sp"
+            android:paddingEnd="10sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/event_time"
-            android:text="Sample time"
-            app:layout_constraintBottom_toTopOf="@id/event_phone"
+            android:textSize="25sp"
+            android:paddingTop="10dp"
+            android:text="04:30 PM - 05:30 PM"
+            app:layout_constraintBottom_toTopOf="@id/contact_text"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/event_date"
+            app:layout_constraintTop_toBottomOf="@id/event_time_text"
             app:layout_constraintRight_toRightOf="parent"
-            android:paddingStart="16sp"
-            android:paddingEnd="16sp"
-            android:textSize="20sp"/>
+            android:paddingStart="10sp"
+            android:paddingEnd="10sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contact_text"
+            android:paddingTop="30sp"
+            android:paddingStart="10sp"
+            android:paddingEnd="10sp"
+            android:text="Contact: "
+            app:layout_constraintBottom_toTopOf="@id/event_phone"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_time"
+            app:layout_constraintVertical_bias="0.0" />
+
+
 
         <TextView
             android:id="@+id/event_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingStart="16sp"
-            android:paddingTop="8sp"
+            android:paddingTop="0sp"
             android:paddingEnd="16sp"
-            android:textSize="20sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/event_time"
+            app:layout_constraintTop_toBottomOf="@id/contact_text"
             app:layout_constraintVertical_bias="0.0" />
 
 
