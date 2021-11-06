@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:fillViewport="true"
+
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/main_layout"
+    android:id="@+id/parentId"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 

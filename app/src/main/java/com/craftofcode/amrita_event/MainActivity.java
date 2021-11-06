@@ -1,16 +1,20 @@
 package com.craftofcode.amrita_event;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
     Button LoginButton;
-
+    ConstraintLayout ParentView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -44,8 +48,31 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         LoginButton = findViewById(R.id.login_button);
+        ParentView = findViewById(R.id.parentId);
 
-        //Making a post request to check username and password
+        ParentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                username.clearFocus();
+                password.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            }
+        });
+
+        username.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                return handleKeyEvent(v,keyCode);
+            }
+        });
+
+        password.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                return handleKeyEvent(v, keyCode);
+            }
+        });
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,5 +156,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public boolean handleKeyEvent(View view, int KeyCode){
+        if(KeyCode == KeyEvent.KEYCODE_ENTER){
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            return true;
+        }
+        return false;
     }
 }
