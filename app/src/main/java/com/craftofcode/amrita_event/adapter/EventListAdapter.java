@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -116,7 +117,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                     builder.setView(builderView);
 
                     final AlertDialog alertDialog = builder.create();
-
+                    RelativeLayout ParentView = builderView.findViewById(R.id.parentView);
                     EditText ImageUrl = builderView.findViewById(R.id.ImageUrl);
                     EditText EventTitle = builderView.findViewById(R.id.Title);
                     EditText Caption = builderView.findViewById(R.id.Caption);
@@ -135,7 +136,18 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                     Button CreateEventButton = builderView.findViewById(R.id.CreateEventButton);
 
                     alertDialog.show();
+                    //Keyboard patch
+                    ParentView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ImageUrl.clearFocus();EventTitle.clearFocus();Caption.clearFocus(); Description.clearFocus(); OrganisingClub.clearFocus(); Date.clearFocus(); Venue.clearFocus(); RegistrationLink.clearFocus();
+                            Note.clearFocus(); ContactName1.clearFocus(); ContactName2.clearFocus(); ContactPhone1.clearFocus(); ContactPhone2.clearFocus();
 
+                            InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                            inputMethodManager.hideSoftInputFromWindow(builderView.getWindowToken(), 0);
+
+                        }
+                    });
                     closeDialog.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

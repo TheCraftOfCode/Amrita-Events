@@ -1,13 +1,16 @@
 package com.craftofcode.amrita_event;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -105,7 +108,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
                 builder.setView(builderView);
 
                 final AlertDialog alertDialog = builder.create();
-
+                RelativeLayout ParentView = builderView.findViewById(R.id.parentView);
                 EditText ImageUrl = builderView.findViewById(R.id.ImageUrl);
                 EditText EventTitle = builderView.findViewById(R.id.Title);
                 EditText Caption = builderView.findViewById(R.id.Caption);
@@ -115,12 +118,26 @@ public class Card_list_View_Admins extends AppCompatActivity {
                 EditText Venue = builderView.findViewById(R.id.Venue);
                 EditText RegistrationLink = builderView.findViewById(R.id.RegistrationLink);
                 EditText Note = builderView.findViewById(R.id.Note);
+                EditText ContactName1 = builderView.findViewById(R.id.ContactDetailName1);
+                EditText ContactPhone1 = builderView.findViewById(R.id.ContactPhone1);
+                EditText ContactName2 = builderView.findViewById(R.id.ContactDetailName2);
+                EditText ContactPhone2 = builderView.findViewById(R.id.ContactPhone2);
 
                 ImageButton closeDialog = builderView.findViewById(R.id.cancel);
                 Button CreateEventButton = builderView.findViewById(R.id.CreateEventButton);
 
                 alertDialog.show();
+                ParentView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ImageUrl.clearFocus();EventTitle.clearFocus();Caption.clearFocus(); Description.clearFocus(); OrganisingClub.clearFocus(); Date.clearFocus(); Venue.clearFocus(); RegistrationLink.clearFocus();
+                        Note.clearFocus(); ContactName1.clearFocus(); ContactName2.clearFocus(); ContactPhone1.clearFocus(); ContactPhone2.clearFocus();
 
+                        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        inputMethodManager.hideSoftInputFromWindow(builderView.getWindowToken(), 0);
+
+                    }
+                });
                 closeDialog.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -147,10 +164,6 @@ public class Card_list_View_Admins extends AppCompatActivity {
 
                            //creating an other Json Object for contact details
                            JSONObject ContactDetails = new JSONObject();
-                           EditText ContactName1 = builderView.findViewById(R.id.ContactDetailName1);
-                           EditText ContactPhone1 = builderView.findViewById(R.id.ContactPhone1);
-                           EditText ContactName2 = builderView.findViewById(R.id.ContactDetailName2);
-                           EditText ContactPhone2 = builderView.findViewById(R.id.ContactPhone2);
 
                            ContactDetails.put(ContactName1.getText().toString(), ContactPhone1.getText().toString());
                            ContactDetails.put(ContactName2.getText().toString(), ContactPhone2.getText().toString());
