@@ -18,7 +18,7 @@
         <activity
             android:name=".Card_list_View_Admins"
             android:exported="true" />
-        <activity android:name=".club_view" />
+        <activity android:name=".Club_list" />
         <activity android:name=".EventView_Home" />
         <activity android:name=".CardView_Home" />
         <activity android:name=".MainActivity">

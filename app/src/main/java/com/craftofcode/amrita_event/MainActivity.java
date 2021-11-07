@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(getApplicationContext(), Card_list_View_Admins.class);
                                 startActivity(intent);
                             }else if(jsonObject.get("isAdmin").toString().equals("false")){
-                                Intent intent = new Intent(getApplicationContext(), CardView_Home.class);
+                                Intent intent = new Intent(getApplicationContext(), EventView_Home.class);
                                 startActivity(intent);
                             }else{
                                 return;
