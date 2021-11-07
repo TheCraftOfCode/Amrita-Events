@@ -112,7 +112,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                 public void onClick(View v) {
                     Log.d("mess", String.valueOf(getAdapterPosition()));
                     Context updateButton = UpdateButton.getContext();
-                    final View builderView = MainactivityInflater.inflate(R.layout.update_fields, null);
+                    final View builderView = MainactivityInflater.inflate(R.layout.update_events, null);
                     final AlertDialog.Builder builder = new AlertDialog.Builder(UpdateButton.getContext());
                     builder.setView(builderView);
 

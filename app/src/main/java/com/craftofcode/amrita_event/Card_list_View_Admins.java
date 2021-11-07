@@ -103,7 +103,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         CreateEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final View builderView = getLayoutInflater().inflate(R.layout.update_fields, null);
+                final View builderView = getLayoutInflater().inflate(R.layout.create_events, null);
                 final AlertDialog.Builder builder = new AlertDialog.Builder(CreateEvents.getContext());
                 builder.setView(builderView);
 
