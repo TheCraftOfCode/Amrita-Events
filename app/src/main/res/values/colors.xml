@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_purple">#b39ddb</color>
+    <color name="club_bg">#FF916D9D</color>
 
     <!-- Color Primary:  #6200EE #FF0000-->
     <!-- Color Accent:  #03DAC5 #DAA403 -->

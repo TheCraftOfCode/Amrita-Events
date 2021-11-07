@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_gravity="fill"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+
+        app:cardUseCompatPadding="true">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/club_bg"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/club_image"
+                android:layout_width="800dp"
+                android:layout_height="150dp"
+
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_gravity="left"
+                android:padding="10dp"
+
+                android:src="@drawable/cse_club" />
+
+            <TextView
+                android:id="@+id/club_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/club_image"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="10dp"
+                android:textAlignment="center"
+
+                android:fontFamily="@font/raleway_bold"
+                android:padding="10dp"
+                android:text="ASSOCIATION OF STUDENTS OF COMPUTER SCIENCE FOR INFORMATION INTERCHANGE (ASCII)"
+                android:textSize="20dp" />
+
+            <TextView
+
+                android:id="@+id/club_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/club_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+
+                android:fontFamily="@font/raleway"
+                android:justificationMode="inter_word"
+                android:padding="10dp"
+                android:text="The Association of Students of Computer Science for Information Interchange (ASCII) is the technical association of the Department of Computer Science and Engineering, Amrita Vishwa Vidyapeetham. It was established in the year 1997. The association hosts various technical and social events planned and executed by students."
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/insta"
+                android:layout_width="53dp"
+                android:layout_height="38dp"
+                android:layout_below="@id/club_des"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/instagram" />
+
+            <TextView
+                android:id="@+id/club_insta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/club_des"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="17dp"
+                android:layout_toRightOf="@+id/insta"
+                android:fontFamily="@font/raleway"
+                android:gravity="left"
+                android:text="insta"
+                android:textColor="@color/black"
+                android:textColorLink="@color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/check_events"
+                android:layout_width="121dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/insta"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="10dp"
+
+
+                android:fontFamily="@font/raleway_bold"
+
+                android:text="Check events"
+                android:textAlignment="center"
+
+                android:textColor="@color/white"
+                android:textColorLink="@color/white"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
