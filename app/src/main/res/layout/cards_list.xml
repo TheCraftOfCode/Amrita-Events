@@ -22,17 +22,16 @@
             <!--Media-->
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
-                android:layout_width="280dp"
-                android:layout_height="350dp"
+                android:layout_width="320dp"
+                android:layout_height="360dp"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/cse_club" />
 
-
             <!-- Buttons -->
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:layout_height="160dp"
                 android:layout_below="@id/imageView"
                 android:background="@drawable/image_shadow"
                 android:orientation="vertical">
@@ -46,7 +45,7 @@
                     android:fontFamily="@font/raleway_medium"
                     android:text="@string/title"
                     android:ellipsize="end"
-                    android:maxLines="1"
+                    android:maxLines="2"
                     android:textColor="@color/white"
                     android:textSize="35sp"
                     app:layout_constraintTop_toBottomOf="parent" />
@@ -61,6 +60,19 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@string/club"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="0sp"
+                    android:layout_marginBottom="20dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Event date"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 

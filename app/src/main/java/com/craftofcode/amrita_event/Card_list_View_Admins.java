@@ -90,7 +90,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
         //setting up the adapter
         adapter = new EventListAdapter(getApplicationContext(), getLayoutInflater(),_id,EventTitle, Url, Clubname, DateEvent);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
 
         //progress bar visibilty
         progressBarVisible();

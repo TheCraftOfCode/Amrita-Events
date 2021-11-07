@@ -1,22 +1,18 @@
 
 <!--Admin side car view -->
 <LinearLayout
-    android:layout_width="match_parent"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_margin="15dp"
     android:weightSum="10">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
-        android:background="@color/teal_200"
-        app:cardCornerRadius="30dp"
         android:transitionName="ContainerTransform"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:layout_margin="0dp">
 
         <LinearLayout
@@ -27,16 +23,16 @@
             <!-- Media -->
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="194dp"
+                android:layout_height="350dp"
                 android:id="@+id/image"
                 app:srcCompat="@drawable/ic_launcher_background"
                 android:scaleType="centerCrop"
                 />
 
             <LinearLayout
-                android:background="@color/bg_purple"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:background="@drawable/image_shadow"
+                android:layout_height="250dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -46,8 +42,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/title"
                     android:id="@+id/title"
-                    android:textColor="@color/design_default_color_primary_dark"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/raleway_medium"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,8 +52,9 @@
                     android:layout_marginTop="8dp"
                     android:id="@+id/club"
                     android:text="@string/club"
+                    android:textSize="25sp"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/design_default_color_primary_dark"
+                    android:textColor="@color/white"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -64,33 +62,34 @@
                     android:layout_marginTop="16dp"
                     android:id="@+id/date"
                     android:text="@string/supporting_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/design_default_color_primary_dark"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
                     />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/bg_purple"
+                    android:paddingTop="20sp"
+                    android:layout_gravity="center"
                     android:orientation="horizontal">
+
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="38dp"
+                        android:layout_marginEnd="20dp"
                         android:id="@+id/delbutton"
-                        android:textColor="@color/design_default_color_primary_dark"
-                        style="?attr/borderlessButtonStyle"
-                        android:text="@string/secondary_text"
-                        />
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="@string/secondary_text"/>
+
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/update"
                         android:id="@+id/updbutton"
-                        style="?attr/borderlessButtonStyle"
-                        android:textColor="@color/design_default_color_primary_dark"
-                        />
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/raleway_medium" />
+
                 </LinearLayout>
 
             </LinearLayout>

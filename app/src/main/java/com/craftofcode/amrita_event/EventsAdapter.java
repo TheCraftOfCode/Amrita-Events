@@ -41,6 +41,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
         Event_Details event = eventDetailsArrayList.get(position);
         holder.eventName.setText(event.getEvent_name());
         holder.eventClub.setText(event.getEvent_club());
+        holder.eventTime.setText(event.getEvent_date());
         Picasso.get().load(eventDetailsArrayList.get(position).getEvent_image()).into(holder.imageURL);
     }
 
@@ -53,7 +54,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
     // View holder class for initializing of your views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
         public View v;
-        private TextView eventName, eventClub;
+        private TextView eventName, eventClub, eventTime;
         private ImageView imageURL;
         final EventsAdapter adapter;
 
@@ -63,6 +64,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Viewholder
             eventName = itemView.findViewById(R.id.title);
             eventClub = itemView.findViewById(R.id.club);
             imageURL = itemView.findViewById(R.id.imageView);
+            eventTime = itemView.findViewById(R.id.date);
             this.adapter = adapter;
             this.v = itemView;
 

@@ -7,9 +7,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.2421875" />
-        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/activity_club_list.xml" value="0.21784420289855072" />
-        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/cards_list.xml" value="0.17617753623188406" />
-        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/club_card.xml" value="0.4" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/drawable/image_shadow.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/activity_card_list_view_admins.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/activity_card_view_home.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/activity_club_list.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/activity_event_view_home.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/activity_main.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/activity_register_user.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/admin_card_view.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/cards_list.xml" value="0.18070652173913043" />
+        <entry key="..\:/Users/nirma/StudioProjects/Amrita-Events/app/src/main/res/layout/form_popup_for_event_creation.xml" value="0.18070652173913043" />
         <entry key="app/src/main/res/drawable/editable_box_shape.xml" value="0.26197916666666665" />
         <entry key="app/src/main/res/drawable/image_shadow.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_card_list_view_admins.xml" value="0.20643363728470113" />
