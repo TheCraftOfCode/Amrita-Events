@@ -2,7 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/bg_purple"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,9 +25,8 @@
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="sans-serif-condensed-medium"
                 android:text="Create Event"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="40sp" />
 
             <ImageButton
@@ -36,7 +35,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_clear_24"
                 android:layout_weight="1"/>
+
         </LinearLayout>
+
         <EditText
             android:id="@+id/ImageUrl"
             android:layout_width="match_parent"
@@ -46,11 +47,11 @@
             android:layout_marginRight="40dp"
             android:background="@drawable/editable_box_shape"
             android:drawablePadding="5dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:hint="Enter ImageUrl"
+            android:hint="Enter ImageURL"
+            android:textColorHint="@color/white"
             android:inputType="textEmailAddress"
             android:padding="12dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
@@ -64,9 +65,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
             android:textSize="18sp"
+            android:textColorHint="@color/white"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,9 +82,9 @@
             android:hint="Enter Caption"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
             android:textSize="18sp"
+            android:textColorHint="@color/white"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -97,8 +98,8 @@
             android:hint="Enter Description"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -113,8 +114,8 @@
             android:hint="Enter Organising Club"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -129,8 +130,8 @@
             android:hint="Enter Date"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -145,8 +146,8 @@
             android:hint="Enter Venue"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -162,10 +163,10 @@
             android:layout_marginRight="40dp"
             android:background="@drawable/editable_box_shape"
             android:drawablePadding="5dp"
-            android:fontFamily="sans-serif-condensed-medium"
             android:hint="Enter Registration Link"
             android:padding="12dp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp" />
 
         <EditText
@@ -177,12 +178,13 @@
             android:hint="Enter Note"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,7 +192,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
             android:layout_below="@+id/Note"
-            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/white"
             android:text="Contact Details:"
             android:textSize="25sp" />
 
@@ -203,8 +205,8 @@
             android:hint="Enter Contact Name"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -219,8 +221,8 @@
             android:hint="Enter Mobile No"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -235,8 +237,8 @@
             android:hint="Enter Contact Name"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -251,8 +253,8 @@
             android:hint="Enter Mobile No"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="18sp"
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
@@ -264,16 +266,15 @@
             android:layout_below="@+id/ContactPhone2"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
-            android:fontFamily="sans-serif-condensed-medium"
             android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:text="Create Event"
-            android:backgroundTint="@color/colorGreen"
+            android:background="@drawable/image_shadow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="HardcodedText" />
 
-
-
     </RelativeLayout>
+
+
 </ScrollView>
