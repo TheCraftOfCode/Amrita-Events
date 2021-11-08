@@ -1,10 +1,13 @@
 package com.craftofcode.amrita_event;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.craftofcode.amrita_event.apiModel.MySingleton;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,17 +28,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CardView_Home extends AppCompatActivity {
+public class CardView_Home extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView recyclerView;
 
     private ArrayList<Event_Details> EventDetailsArrayList = new ArrayList<Event_Details>();
-
+private BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_view_home);
         recyclerView = findViewById(R.id.cards_recycler);
+        bottomNavigationView = findViewById(R.id.event_bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
+        bottomNavigationView.setSelectedItemId(R.id.events);
         EventsAdapter eventDetails = new EventsAdapter(this,EventDetailsArrayList);
         //Opening the Get request
 
@@ -97,5 +104,23 @@ public class CardView_Home extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.clubs:
+                Intent intent = new Intent(getApplicationContext(),Club_List.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.events:
+
+
+                return true;
+
+
+        }
+        return false;
+    }
 
 }

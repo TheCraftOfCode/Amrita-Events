@@ -44,7 +44,7 @@ import java.util.ArrayList;
             holder.clubName.setText(club.getClub_name());
             holder.clubDes.setText(club.getClub_description());
 
-            Glide.with(context).load(club.getClub_img_url()).override(400, 200).into(holder.club_img);
+            Glide.with(context).load(club.getClub_img_url()).override(100, 100).into(holder.club_img);
         }
 
 

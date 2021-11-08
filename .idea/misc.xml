@@ -7,6 +7,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.2421875" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/drawable/clubs_icon_background.xml" value="0.13240740740740742" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/drawable/clubs_icon_foreground.xml" value="0.13240740740740742" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/drawable/events_foreground.xml" value="0.23703703703703705" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/activity_card_view_home.xml" value="0.1160081053698075" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/activity_club_list.xml" value="0.21784420289855072" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/cards_list.xml" value="0.17617753623188406" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/layout/club_card.xml" value="0.4" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/menu/menu.xml" value="0.264" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/menu/menu1.xml" value="0.1" />
+        <entry key="..\:/Amrita/Semesters/SEM5/APP DEV/Amrita-Events/app/src/main/res/menu/menu2.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/editable_box_shape.xml" value="0.26197916666666665" />
         <entry key="app/src/main/res/drawable/image_shadow.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_card_list_view_admins.xml" value="0.20643363728470113" />
@@ -18,7 +28,6 @@
         <entry key="app/src/main/res/layout/activity_register_user.xml" value="0.25" />
         <entry key="app/src/main/res/layout/admin_card_view.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/cards_list.xml" value="0.16772151898734178" />
-        <entry key="app/src/main/res/layout/club_card.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/form_popup_for_event_creation.xml" value="0.37092391304347827" />
         <entry key="app/src/main/res/layout/test_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/update_events.xml" value="0.33061594202898553" />
