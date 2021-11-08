@@ -20,6 +20,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +62,6 @@ public class CardView_Home extends AppCompatActivity {
                                 System.out.println("response" + event);
                                 EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),event.get("Date").toString(),"05:30 PM - 06:30 PM",event.get("_id").toString() , event.get("OrganizingClub").toString(),event.get("ImageUrl").toString(),1111111111));
 
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -79,8 +80,8 @@ public class CardView_Home extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                SharedPreferences TOKEN = getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-                params.put("user-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTg1NTM2MGI5MWI0YjAwMDQxNTcxZjAiLCJ1c2VybmFtZSI6IkNCLkVOLlU0Q1NFMTkwMzgiLCJpYXQiOjE2MzYxMjc2MTF9.yCho08MtlUfaDj5BTYcE1UJc6X4fWmT6nOd_G_7rPbk");
+                SharedPreferences TOKEN = getSharedPreferences("Token", Context.MODE_PRIVATE);
+                params.put("user-auth-token", TOKEN.getString("user-auth-token","Theif..!"));
                 return params;
             }
         };
@@ -97,5 +98,17 @@ public class CardView_Home extends AppCompatActivity {
 
     }
 
+    private String ConvertMongoDateFormat(String MongoDate){
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat OutputDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String FinalDate = "";
+        try {
+            FinalDate = OutputDateFormat.format(inputFormat.parse(MongoDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(FinalDate);
+        return FinalDate;
+    }
 
 }
