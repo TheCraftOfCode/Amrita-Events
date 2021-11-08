@@ -43,7 +43,6 @@ public class Filtered_club_Events extends AppCompatActivity {
         recyclerView.setAdapter(eventDetails);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         GetFilteredEventsByClubName(ClubName);
-
     }
 
     private void GetFilteredEventsByClubName(String ClubName) {
@@ -57,6 +56,9 @@ public class Filtered_club_Events extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         eventDetails.notifyDataSetChanged();
+                        if(response.length() == 0){
+                            Toast.makeText(getApplicationContext(), "No Events at the moment..!", Toast.LENGTH_SHORT).show();
+                        }
                         for(int i = 0; i < response.length(); i++){
                             try {
                                 //System.out.println(response.getJSONObject(i));   Debugging
@@ -67,8 +69,6 @@ public class Filtered_club_Events extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
-
-
                     }
                 }, new Response.ErrorListener() {
 

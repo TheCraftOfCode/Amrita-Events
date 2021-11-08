@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent = new Intent(getApplicationContext(), Card_list_View_Admins.class);
                                 startActivity(intent);
                             }else if(jsonObject.get("isAdmin").toString().equals("false")){
-                                Intent intent = new Intent(getApplicationContext(), Club_List.class);
+                                Intent intent = new Intent(getApplicationContext(), CardView_Home.class);
                                 startActivity(intent);
                             }else{
                                 return;
@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             System.out.println("LOG_RESPONSE" + error.toString());
+                            Toast.makeText(getApplicationContext(), "Sorry..! Couldn't Log you in", Toast.LENGTH_SHORT).show();
                         }
                     }) {
 
