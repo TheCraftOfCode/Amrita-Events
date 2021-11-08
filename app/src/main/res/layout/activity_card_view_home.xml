@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:id="@+id/events_view"
     android:background="@color/background"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -33,6 +34,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/event_scrollview"
         android:layout_below="@+id/text_events"
         android:layout_alignParentBottom="true">
 
@@ -47,6 +49,19 @@
             app:layout_constraintTop_toBottomOf="@id/text_events" />
 
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/event_scrollview"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:itemTextColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu1"/>
 
 
 </RelativeLayout>

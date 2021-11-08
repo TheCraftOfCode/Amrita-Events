@@ -109,4 +109,6 @@
     <string name="update">Update</string>
     <string name="more"><![CDATA[More >]]></string>
     <string name="enter_your_name">Enter your name</string>
+    <string name="sign_in_text">Sign In</string>
+    <string name="sign_up_text">Sign Up</string>
 </resources>

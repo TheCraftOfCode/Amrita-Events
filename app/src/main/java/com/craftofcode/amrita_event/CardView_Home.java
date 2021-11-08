@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.craftofcode.amrita_event.apiModel.MySingleton;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +30,7 @@ import java.util.Map;
 public class CardView_Home extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private BottomNavigationView bottomNavigationView;
 
     private ArrayList<Event_Details> EventDetailsArrayList = new ArrayList<Event_Details>();
 
@@ -38,6 +40,7 @@ public class CardView_Home extends AppCompatActivity {
         setContentView(R.layout.activity_card_view_home);
         recyclerView = findViewById(R.id.cards_recycler);
         EventsAdapter eventDetails = new EventsAdapter(this,EventDetailsArrayList);
+
         //Opening the Get request
 
 
