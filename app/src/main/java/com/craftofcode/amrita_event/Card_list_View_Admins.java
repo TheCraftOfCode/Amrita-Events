@@ -212,6 +212,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println("LOG_RESPONSE" + error.toString());
+                Toast.makeText(getApplicationContext(), "Sorry..! Something Went Wrong", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -324,7 +325,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
-
+                        Toast.makeText(getApplicationContext(), "Sorry...! Something Went Wrong..!", Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
