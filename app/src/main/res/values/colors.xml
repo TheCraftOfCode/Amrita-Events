@@ -29,6 +29,6 @@
     <color name="colorGreen">#37FF00</color>
     <color name="colorBlue">#0037FF</color>
     <color name="background">#11141F</color>
-
+    <color name="floatingactionButton">#5F4B8BFF</color>
     <!-- Have to add the material colours -->
 </resources>

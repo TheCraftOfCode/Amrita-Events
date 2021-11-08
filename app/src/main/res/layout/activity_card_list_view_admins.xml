@@ -34,6 +34,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/floatingactionButton"
         android:src="@drawable/ic_baseline_add_24" />
 </RelativeLayout>
 

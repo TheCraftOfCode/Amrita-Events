@@ -12,7 +12,7 @@
         android:id="@+id/card"
         android:transitionName="ContainerTransform"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="650dp"
         android:layout_margin="0dp">
 
         <LinearLayout
@@ -23,7 +23,7 @@
             <!-- Media -->
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="400dp"
                 android:id="@+id/image"
                 app:srcCompat="@drawable/ic_launcher_background"
                 android:scaleType="centerCrop"
@@ -32,7 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:background="@drawable/image_shadow"
-                android:layout_height="250dp"
+                android:layout_height="300dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -42,6 +42,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/title"
                     android:id="@+id/title"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     android:fontFamily="@font/raleway_medium"
