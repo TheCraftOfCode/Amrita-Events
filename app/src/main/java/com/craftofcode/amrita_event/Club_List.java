@@ -29,7 +29,7 @@ public class Club_List extends AppCompatActivity {
 
 
         recyclerView.setAdapter(clubDetails);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
 
 
 
