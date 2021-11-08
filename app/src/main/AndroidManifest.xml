@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmritaEvent">
         <activity
+            android:name=".Filtered_club_Events"
+            android:exported="false" />
+        <activity
             android:name=".Club_List"
             android:exported="false" />
         <activity

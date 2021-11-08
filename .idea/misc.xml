@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/activity_club_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_event_view_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_expanded_card_admins.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/activity_filtered_club_events.xml" value="0.379981884057971" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register_user.xml" value="0.25" />
         <entry key="app/src/main/res/layout/admin_card_view.xml" value="0.20643363728470113" />

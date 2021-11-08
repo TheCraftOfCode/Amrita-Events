@@ -18,10 +18,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 
-
-
-
-    public class Club_Adapter extends RecyclerView.Adapter<Club_Adapter.Viewholder> {
+public class Club_Adapter extends RecyclerView.Adapter<Club_Adapter.Viewholder> {
         private Context context;
         private final ArrayList<Club_Details> clubDetailsArrayList;
 
@@ -77,12 +74,17 @@ import java.util.ArrayList;
                     public void onClick(View v) {
                         Log.d("onClick: ","Item has been clicked");
                         int position = getAdapterPosition();
-                        Intent intent = new Intent(context,CardView_Home.class);
+                        String ClubName = clubDetailsArrayList.get(position).getClub_name();
+                        // opening get request for club name filtered events
+
+                        Intent intent = new Intent(context, Filtered_club_Events.class);
+                        intent.putExtra("ClubName", ClubName);
                         context.startActivity(intent);
                     }
                 });
             }
         }
+
     }
 
 
