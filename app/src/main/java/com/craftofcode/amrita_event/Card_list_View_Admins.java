@@ -44,9 +44,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Objects;
 
 public class Card_list_View_Admins extends AppCompatActivity {
 
@@ -157,6 +160,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
                            CreateEventPostReqestBody.put("Caption", ConvertEditTextContentToString(Caption));
                            CreateEventPostReqestBody.put("Description", ConvertEditTextContentToString(Description));
                            CreateEventPostReqestBody.put("OrganizingClub", ConvertEditTextContentToString(OrganisingClub));
+
                            CreateEventPostReqestBody.put("Date", ConvertEditTextContentToString(Date));
                            CreateEventPostReqestBody.put("Venue", ConvertEditTextContentToString(Venue));
                            CreateEventPostReqestBody.put("RegistrationLink", ConvertEditTextContentToString(RegistrationLink));
@@ -250,6 +254,8 @@ public class Card_list_View_Admins extends AppCompatActivity {
         requestQueue2.add(CreateEventPostRequest);
 
     }
+
+    //Setting up Request Queue
     private void SettingUpRequestQueue() {
         cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); //1Mb cap
         network = new BasicNetwork(new HurlStack());
@@ -257,6 +263,21 @@ public class Card_list_View_Admins extends AppCompatActivity {
         requestQueue.start();
     }
 
+    //Mongo Db iso date format to DD-MM-YYYY format Converting function
+    private String ConvertMongoDateFormat(String MongoDate){
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        SimpleDateFormat OutputDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String FinalDate = "";
+        try {
+            FinalDate = OutputDateFormat.format(Objects.requireNonNull(inputFormat.parse(MongoDate)));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(FinalDate);
+        return FinalDate;
+    }
+
+    //Get request Function
     private void GetRequestToTheAdminSideEventCardView(){
 
         // Api call is being made Here
@@ -282,13 +303,13 @@ public class Card_list_View_Admins extends AppCompatActivity {
                             try {
 
                                 //System.out.println(response.getJSONObject(i));   Debugging
-
                                 JSONObject event = response.getJSONObject(i);
                                 _id.addLast(event.get("_id").toString());
                                 Url.addLast(event.get("ImageUrl").toString());
                                 EventTitle.addLast(event.get("Title").toString());
                                 Clubname.addLast(event.get("OrganizingClub").toString());
-                                DateEvent.addLast(event.get("Date").toString());
+                                String MongoDateFormat = event.get("Date").toString();
+                                DateEvent.addLast(ConvertMongoDateFormat(MongoDateFormat));
                                 adapter.notifyItemInserted(i);
 
                             } catch (JSONException e) {
