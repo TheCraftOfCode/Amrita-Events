@@ -10,6 +10,8 @@ public class Event_Details {
     private String event_club;
     private long event_phone;
     private String image_url;
+    private String contactNameOne;
+    private long contactPhoneOne;
 
     public Event_Details(String name, String description, String date, String time, String id,String club, String url, long phone){
         event_id = id;
