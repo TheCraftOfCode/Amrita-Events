@@ -76,10 +76,9 @@ public class CardView_Home extends AppCompatActivity {
 
                                 String Contacts = "";
                                 for (Map.Entry<String, String> set : ContactDetailsMap.entrySet()){
-
                                     Contacts = set.getKey() + " : " + set.getValue() + "\n";
-
                                 }
+                                System.out.println(Contacts);
                                 EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),ConvertMongoDateFormat(MongoDate),"05:30 PM - 06:30 PM",event.get("_id").toString() , event.get("OrganizingClub").toString(),event.get("ImageUrl").toString(), Contacts));
 
 
