@@ -1,5 +1,6 @@
 package com.craftofcode.amrita_event;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,6 +64,8 @@ public class Register_user extends AppCompatActivity {
                         public void onResponse(String response) {
 //                            System.out.println(response);
                             Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(intent);
                         }
                     }, new Response.ErrorListener() {
                         @Override

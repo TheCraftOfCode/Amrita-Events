@@ -64,8 +64,15 @@ public class CardView_Home extends AppCompatActivity {
                                 JSONObject event = response.getJSONObject(i);
                                 System.out.println("response" + event);
                                 String MongoDate = event.get("Date").toString();
-                                JSONArray ContactDetails = event.getJSONArray("ContactDetails");
-                                System.out.println(ContactDetails);
+                                JSONArray contactDetails = event.getJSONArray("ContactDetails");
+                                System.out.println(contactDetails);
+
+                                for(int j=0;j<contactDetails.length();j++){
+                                    JSONObject contactDetail = contactDetails.getJSONObject(j);
+                                    String nameOne = contactDetail.get("Name").toString();
+                                    String contactOne = contactDetail.get("Phone").toString();
+
+                                }
 
                                 EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),ConvertMongoDateFormat(MongoDate),"05:30 PM - 06:30 PM",event.get("_id").toString() , event.get("OrganizingClub").toString(),event.get("ImageUrl").toString(),1111111111));
 

@@ -37,7 +37,7 @@ import java.util.Base64;
 public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
-    Button LoginButton;
+    Button LoginButton,registerButton;
     ConstraintLayout ParentView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         LoginButton = findViewById(R.id.login_button);
         ParentView = findViewById(R.id.parentId);
+        registerButton = findViewById(R.id.register_button);
 
         ParentView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 return handleKeyEvent(v, keyCode);
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(),Register_user.class);
+                startActivity(intent);
             }
         });
 
