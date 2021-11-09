@@ -52,7 +52,6 @@
                     android:textAlignment="center"
                     android:fontFamily="@font/raleway_bold"
                     android:padding="10dp"
-                    android:text="ASSOCIATION OF STUDENTS OF COMPUTER SCIENCE FOR INFORMATION INTERCHANGE (ASCII)"
                     android:textSize="30sp" />
 
                 <TextView
@@ -64,7 +63,6 @@
                     android:layout_marginRight="10dp"
                     android:fontFamily="@font/raleway"
                     android:justificationMode="inter_word"
-                    android:text="The Association of Students of Computer Science for Information Interchange (ASCII) is the technical association of the Department of Computer Science and Engineering, Amrita Vishwa Vidyapeetham. It was established in the year 1997. The association hosts various technical and social events planned and executed by students."
                     android:textSize="20sp" />
 
                 <ImageView
