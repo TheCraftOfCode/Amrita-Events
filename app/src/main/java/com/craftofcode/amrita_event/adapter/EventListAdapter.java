@@ -82,7 +82,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                 public void onClick(View v) {
                     //getting a delete request by getting the id of the event
                     //extracting the id of the event
-                    System.out.println("Position : " + getAdapterPosition()); //for debugging purposes
+                    //System.out.println("Position : " + getAdapterPosition()); //for debugging purposes
 
                     //poping an alert when clicked on delete button
                     AlertDialog.Builder deleteAlert = new AlertDialog.Builder(DeleteButton.getContext());
@@ -127,10 +127,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                     EditText Venue = builderView.findViewById(R.id.Venue);
                     EditText RegistrationLink = builderView.findViewById(R.id.RegistrationLink);
                     EditText Note = builderView.findViewById(R.id.Note);
-                    EditText ContactName1 = builderView.findViewById(R.id.ContactDetailName1);
-                    EditText ContactPhone1 = builderView.findViewById(R.id.ContactPhone1);
-                    EditText ContactName2 = builderView.findViewById(R.id.ContactDetailName2);
-                    EditText ContactPhone2 = builderView.findViewById(R.id.ContactPhone2);
 
                     ImageButton closeDialog = builderView.findViewById(R.id.cancel);
                     Button UpdateEventButton = builderView.findViewById(R.id.UpdateEventButton);
@@ -141,8 +137,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                         @Override
                         public void onClick(View v) {
                             ImageUrl.clearFocus();EventTitle.clearFocus();Caption.clearFocus(); Description.clearFocus(); OrganisingClub.clearFocus(); Date.clearFocus(); Venue.clearFocus(); RegistrationLink.clearFocus();
-                            Note.clearFocus(); ContactName1.clearFocus(); ContactName2.clearFocus(); ContactPhone1.clearFocus(); ContactPhone2.clearFocus();
-
+                            Note.clearFocus();
                             InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
                             inputMethodManager.hideSoftInputFromWindow(builderView.getWindowToken(), 0);
 
@@ -166,7 +161,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                                 updatedBody.put("ImageUrl", ImageUrl.getText().toString());
                             }
                             if(EventTitle.getText().toString().length() != 0){
-                                updatedBody.put("EventTitle", EventTitle.getText().toString());
+                                System.out.println(EventTitle.getText().toString());
+                                updatedBody.put("Title", EventTitle.getText().toString());
                             }
                             if(Caption.getText().toString().length() != 0){
                                 updatedBody.put("Caption", Caption.getText().toString());
@@ -175,7 +171,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                                 updatedBody.put("Description", Description.getText().toString());
                             }
                             if(OrganisingClub.getText().toString().length() != 0){
-                                updatedBody.put("OrganisingClub", OrganisingClub.getText().toString());
+                                updatedBody.put("OrganizingClub", OrganisingClub.getText().toString());
                             }
                             if(Date.getText().toString().length() != 0){
                                 updatedBody.put("Date", Date.getText().toString());
@@ -223,9 +219,10 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                                     e.printStackTrace();
                                 }
                             }
-
+                            System.out.println(UpdateRequestBody);
                             MakingTheUpdateRequest(UpdateRequestBody, getAdapterPosition());
                             alertDialog.dismiss();
+                            notifyItemChanged(getAdapterPosition());
                         }
                     });
 
@@ -292,7 +289,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
 
 
         String UpdateUrl = "https://amrita-events.herokuapp.com/api/admin-users-portal/" + _id.get(AdapterPosition);
-
+        System.out.println(UpdateUrl);
         //Delete request
         JsonObjectRequest UpdateEventRequest = new JsonObjectRequest(Request.Method.PUT, UpdateUrl, updateRequestBody, new Response.Listener<JSONObject>() {
             @Override

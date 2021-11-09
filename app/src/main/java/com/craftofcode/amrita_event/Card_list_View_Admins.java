@@ -174,8 +174,8 @@ public class Card_list_View_Admins extends AppCompatActivity {
                            Details1.put("Phone", ContactPhone1.getText().toString());
 
                            JSONObject Detail2 =  new JSONObject();
-                           Details1.put("Name", ContactName2.getText().toString());
-                           Details1.put("Phone", ContactPhone2.getText().toString());
+                           Detail2.put("Name", ContactName2.getText().toString());
+                           Detail2.put("Phone", ContactPhone2.getText().toString());
 
                            ContactDetails.put(Details1);
                            ContactDetails.put(Detail2);
@@ -186,7 +186,6 @@ public class Card_list_View_Admins extends AppCompatActivity {
                            System.out.println(CreateEventPostReqestBody);
                            //opening a post request
                            PostRequestToCreateANewEvents(CreateEventPostReqestBody);
-
                            //Json Body is Now ready
 
                        } catch (JSONException e) {
@@ -251,7 +250,7 @@ public class Card_list_View_Admins extends AppCompatActivity {
             protected Response<String> parseNetworkResponse(NetworkResponse response) {
                 String responseString = "";
                 if (response != null) {
-                    responseString = String.valueOf(response.statusCode);
+                    responseString = response.toString();
                 }
                 return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
             }
