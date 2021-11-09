@@ -63,7 +63,23 @@ public class Filtered_club_Events extends AppCompatActivity {
                             try {
                                 //System.out.println(response.getJSONObject(i));   Debugging
                                 JSONObject Clubevent = response.getJSONObject(i);
-                                EventDetailsArrayList.add(new Event_Details(Clubevent.get("Title").toString(),Clubevent.get("Description").toString(),Clubevent.get("Date").toString(),"05:30 PM - 06:30 PM",Clubevent.get("_id").toString() , Clubevent.get("OrganizingClub").toString(),Clubevent.get("ImageUrl").toString(),1111111111));
+                                JSONArray ContactDetails = Clubevent.getJSONArray("ContactDetails");
+                                System.out.println(ContactDetails);
+                                Map<String, String> ContactDetailsMap = new HashMap<>();
+
+                                //get all the contact details
+                                for(int j = 0 ; j < ContactDetails.length(); j++){
+                                    JSONObject Contact = ContactDetails.getJSONObject(j);
+                                    ContactDetailsMap.put(Contact.get("Name").toString(), Contact.get("Phone").toString());
+                                }
+
+                                String Contacts = "";
+                                for (Map.Entry<String, String> set : ContactDetailsMap.entrySet()){
+
+                                    Contacts = set.getKey() + " : " + set.getValue() + "\n";
+
+                                }
+                                EventDetailsArrayList.add(new Event_Details(Clubevent.get("Title").toString(),Clubevent.get("Description").toString(),Clubevent.get("Date").toString(),"05:30 PM - 06:30 PM",Clubevent.get("_id").toString() , Clubevent.get("OrganizingClub").toString(),Clubevent.get("ImageUrl").toString(),Contacts));
                                 eventDetails.notifyItemInserted(i);
                             } catch (JSONException e) {
                                 e.printStackTrace();

@@ -8,14 +8,14 @@ public class Event_Details {
     private String event_date;
     private String event_time;
     private String event_club;
-    private long event_phone;
+    private String event_phone;
     private String image_url;
     private String contactNameOne;
     private String contactPhoneOne;
     private String ContactName2;
     private String ContactPhone2;
 
-    public Event_Details(String name, String description, String date, String time, String id,String club, String url, long phone){
+    public Event_Details(String name, String description, String date, String time, String id,String club, String url, String phone){
         event_id = id;
         event_date = date;
         event_description = description;
@@ -54,7 +54,7 @@ public class Event_Details {
         return image_url;
     }
 
-    public long getEvent_phone(){
+    public String getEvent_phone(){
         return event_phone;
     }
 }
