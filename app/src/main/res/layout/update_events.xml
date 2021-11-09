@@ -259,7 +259,7 @@
 <!--            android:layout_height="wrap_content" />-->
 
         <Button
-            android:id="@+id/CreateEventButton"
+            android:id="@+id/UpdateEventButton"
             android:layout_marginTop="40dp"
             android:layout_below="@+id/Note"
             android:layout_marginRight="40dp"

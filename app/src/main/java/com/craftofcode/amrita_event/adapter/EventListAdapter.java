@@ -133,7 +133,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                     EditText ContactPhone2 = builderView.findViewById(R.id.ContactPhone2);
 
                     ImageButton closeDialog = builderView.findViewById(R.id.cancel);
-                    Button CreateEventButton = builderView.findViewById(R.id.CreateEventButton);
+                    Button UpdateEventButton = builderView.findViewById(R.id.UpdateEventButton);
 
                     alertDialog.show();
                     //Keyboard patch
@@ -155,36 +155,41 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                         }
                     });
 
-                    Map<String, String> updatedBody = new HashMap<String, String>();
-                    JSONObject UpdateRequestBody = new JSONObject();
+                    UpdateEventButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                    if(ImageUrl.getText().toString().length() != 0){
-                        updatedBody.put("ImageUrl", ImageUrl.getText().toString());
-                    }
-                    if(EventTitle.getText().toString().length() != 0){
-                        updatedBody.put("EventTitle", EventTitle.getText().toString());
-                    }
-                    if(Caption.getText().toString().length() != 0){
-                        updatedBody.put("Caption", Caption.getText().toString());
-                    }
-                    if(Description.getText().toString().length() != 0){
-                        updatedBody.put("Description", Description.getText().toString());
-                    }
-                    if(OrganisingClub.getText().toString().length() != 0){
-                        updatedBody.put("OrganisingClub", OrganisingClub.getText().toString());
-                    }
-                    if(Date.getText().toString().length() != 0){
-                        updatedBody.put("Date", Date.getText().toString());
-                    }
-                    if(Venue.getText().toString().length() != 0){
-                        updatedBody.put("Venue", Venue.getText().toString());
-                    }
-                    if(RegistrationLink.getText().toString().length() != 0){
-                        updatedBody.put("RegistrationLink", RegistrationLink.getText().toString());
-                    }
-                    if(Note.getText().toString().length() != 0){
-                        updatedBody.put("Note", Note.getText().toString());
-                    }
+                            Map<String, String> updatedBody = new HashMap<String, String>();
+                            JSONObject UpdateRequestBody = new JSONObject();
+
+                            if(ImageUrl.getText().toString().length() != 0){
+                                updatedBody.put("ImageUrl", ImageUrl.getText().toString());
+                            }
+                            if(EventTitle.getText().toString().length() != 0){
+                                updatedBody.put("EventTitle", EventTitle.getText().toString());
+                            }
+                            if(Caption.getText().toString().length() != 0){
+                                updatedBody.put("Caption", Caption.getText().toString());
+                            }
+                            if(Description.getText().toString().length() != 0){
+                                updatedBody.put("Description", Description.getText().toString());
+                            }
+                            if(OrganisingClub.getText().toString().length() != 0){
+                                updatedBody.put("OrganisingClub", OrganisingClub.getText().toString());
+                            }
+                            if(Date.getText().toString().length() != 0){
+                                updatedBody.put("Date", Date.getText().toString());
+                            }
+                            if(Venue.getText().toString().length() != 0){
+                                updatedBody.put("Venue", Venue.getText().toString());
+                            }
+                            if(RegistrationLink.getText().toString().length() != 0){
+                                updatedBody.put("RegistrationLink", RegistrationLink.getText().toString());
+                            }
+                            if(Note.getText().toString().length() != 0){
+                                updatedBody.put("Note", Note.getText().toString());
+                            }
+
 //                    JSONObject contactDetailsModel = new JSONObject();
 //                    JSONArray ContactDetails
 //                    if(ContactName1.getText().toString().length() != 0){
@@ -210,15 +215,19 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
 //                        }
 //                    }
 
-                    for (Map.Entry<String, String> set : updatedBody.entrySet()){
-                        try {
-                            UpdateRequestBody.put(set.getKey(), set.getValue());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
 
-                    MakingTheUpdateRequest(UpdateRequestBody, getAdapterPosition());
+                            for (Map.Entry<String, String> set : updatedBody.entrySet()){
+                                try {
+                                    UpdateRequestBody.put(set.getKey(), set.getValue());
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            MakingTheUpdateRequest(UpdateRequestBody, getAdapterPosition());
+                        }
+                    });
+
                 }
             });
         }
@@ -289,8 +298,9 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
             public void onResponse(JSONObject response) {
                 //Deleting that event from the view
                 System.out.println(response);
+                Toast.makeText(context, "Updated Successfully", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
-                Toast.makeText(context.getApplicationContext(), "Event has been updated",Toast.LENGTH_LONG);
+                notifyItemChanged(AdapterPosition);
             }
         }, new Response.ErrorListener() {
             @Override
