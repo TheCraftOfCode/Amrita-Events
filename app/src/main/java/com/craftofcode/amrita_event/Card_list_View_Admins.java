@@ -167,10 +167,19 @@ public class Card_list_View_Admins extends AppCompatActivity {
                            CreateEventPostReqestBody.put("Note", ConvertEditTextContentToString(Note));
 
                            //creating an other Json Object for contact details
-                           JSONObject ContactDetails = new JSONObject();
+                           JSONArray ContactDetails = new JSONArray();
 
-                           ContactDetails.put(ContactName1.getText().toString(), ContactPhone1.getText().toString());
-                           ContactDetails.put(ContactName2.getText().toString(), ContactPhone2.getText().toString());
+                           JSONObject Details1 =  new JSONObject();
+                           Details1.put("Name", ContactName1.getText().toString());
+                           Details1.put("Phone", ContactPhone1.getText().toString());
+
+                           JSONObject Detail2 =  new JSONObject();
+                           Details1.put("Name", ContactName2.getText().toString());
+                           Details1.put("Phone", ContactPhone2.getText().toString());
+
+                           ContactDetails.put(Details1);
+                           ContactDetails.put(Detail2);
+
 
                            //putting it back in the Json Body
                            CreateEventPostReqestBody.put("ContactDetails", ContactDetails);

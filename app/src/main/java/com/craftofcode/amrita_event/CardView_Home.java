@@ -64,8 +64,11 @@ public class CardView_Home extends AppCompatActivity {
                                 JSONObject event = response.getJSONObject(i);
                                 System.out.println("response" + event);
                                 String MongoDate = event.get("Date").toString();
+                                JSONArray ContactDetails = event.getJSONArray("ContactDetails");
+                                System.out.println(ContactDetails);
 
                                 EventDetailsArrayList.add(new Event_Details(event.get("Title").toString(),event.get("Description").toString(),ConvertMongoDateFormat(MongoDate),"05:30 PM - 06:30 PM",event.get("_id").toString() , event.get("OrganizingClub").toString(),event.get("ImageUrl").toString(),1111111111));
+
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

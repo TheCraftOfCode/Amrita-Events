@@ -183,85 +183,85 @@
             android:background="@drawable/editable_box_shape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ContactDetailsSection"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/Note"
-            android:text="Contact Details:"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/ContactDetailsSection"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_below="@+id/Note"-->
+<!--            android:text="Contact Details:"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="25sp" />-->
 
-        <EditText
-            android:drawablePadding="5dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/ContactDetailName1"
-            android:padding="12dp"
-            android:layout_below="@+id/ContactDetailsSection"
-            android:hint="Enter Contact Name"
-            android:background="@drawable/editable_box_shape"
-            android:layout_marginRight="40dp"
-            android:textColorHint="@color/white"
-            android:layout_marginLeft="40dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+<!--        <EditText-->
+<!--            android:drawablePadding="5dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:id="@+id/ContactDetailName1"-->
+<!--            android:padding="12dp"-->
+<!--            android:layout_below="@+id/ContactDetailsSection"-->
+<!--            android:hint="Enter Contact Name"-->
+<!--            android:background="@drawable/editable_box_shape"-->
+<!--            android:layout_marginRight="40dp"-->
+<!--            android:textColorHint="@color/white"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
-        <EditText
-            android:drawablePadding="5dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/ContactPhone1"
-            android:padding="12dp"
-            android:layout_below="@+id/ContactDetailName1"
-            android:hint="Enter Mobile No"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:background="@drawable/editable_box_shape"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+<!--        <EditText-->
+<!--            android:drawablePadding="5dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:id="@+id/ContactPhone1"-->
+<!--            android:padding="12dp"-->
+<!--            android:layout_below="@+id/ContactDetailName1"-->
+<!--            android:hint="Enter Mobile No"-->
+<!--            android:layout_marginRight="40dp"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:textColorHint="@color/white"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+<!--            android:background="@drawable/editable_box_shape"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
-        <EditText
-            android:drawablePadding="5dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/ContactDetailName2"
-            android:padding="12dp"
-            android:layout_below="@+id/ContactPhone1"
-            android:hint="Enter Contact Name"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:background="@drawable/editable_box_shape"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+<!--        <EditText-->
+<!--            android:drawablePadding="5dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:id="@+id/ContactDetailName2"-->
+<!--            android:padding="12dp"-->
+<!--            android:layout_below="@+id/ContactPhone1"-->
+<!--            android:hint="Enter Contact Name"-->
+<!--            android:layout_marginRight="40dp"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:textColorHint="@color/white"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+<!--            android:background="@drawable/editable_box_shape"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
-        <EditText
-            android:drawablePadding="5dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/ContactPhone2"
-            android:padding="12dp"
-            android:layout_below="@+id/ContactDetailName2"
-            android:hint="Enter Mobile No"
-            android:layout_marginRight="40dp"
-            android:textColorHint="@color/white"
-            android:layout_marginLeft="40dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:background="@drawable/editable_box_shape"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+<!--        <EditText-->
+<!--            android:drawablePadding="5dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:id="@+id/ContactPhone2"-->
+<!--            android:padding="12dp"-->
+<!--            android:layout_below="@+id/ContactDetailName2"-->
+<!--            android:hint="Enter Mobile No"-->
+<!--            android:layout_marginRight="40dp"-->
+<!--            android:textColorHint="@color/white"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+<!--            android:background="@drawable/editable_box_shape"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
         <Button
             android:id="@+id/CreateEventButton"
             android:layout_marginTop="40dp"
-            android:layout_below="@+id/ContactPhone2"
+            android:layout_below="@+id/Note"
             android:layout_marginRight="40dp"
             android:layout_marginLeft="40dp"
             android:textColor="@color/colorWhite"

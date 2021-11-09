@@ -11,7 +11,9 @@ public class Event_Details {
     private long event_phone;
     private String image_url;
     private String contactNameOne;
-    private long contactPhoneOne;
+    private String contactPhoneOne;
+    private String ContactName2;
+    private String ContactPhone2;
 
     public Event_Details(String name, String description, String date, String time, String id,String club, String url, long phone){
         event_id = id;

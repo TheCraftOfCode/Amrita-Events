@@ -85,8 +85,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
 
                     //poping an alert when clicked on delete button
                     AlertDialog.Builder deleteAlert = new AlertDialog.Builder(DeleteButton.getContext());
-                    deleteAlert.setTitle("Are you sure..!");
-                    deleteAlert.setTitle("Are you sure you want to delete this ?");
+                    deleteAlert.setMessage("Are you sure you want to delete this ?");
                     //deleteAlert.setIcon(R.drawable.ic_baseline_delete_24);
 
                     deleteAlert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
@@ -185,27 +184,30 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                     if(Note.getText().toString().length() != 0){
                         updatedBody.put("Note", Note.getText().toString());
                     }
-                    if(ContactName1.getText().toString().length() != 0){
-                        if(!ContactPhone1.getText().toString().equals("")){
-                            try {
-                                UpdateRequestBody.put(ContactName1.getText().toString(), ContactPhone1.getText().toString());
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                    }
-
-                    if(ContactName2.getText().toString().length() != 0){
-                        if(!ContactPhone2.getText().toString().equals("")){
-                            try {
-                                UpdateRequestBody.put(ContactName2.getText().toString(), ContactPhone2.getText().toString());
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                    }
+//                    JSONObject contactDetailsModel = new JSONObject();
+//                    JSONArray ContactDetails
+//                    if(ContactName1.getText().toString().length() != 0){
+//                        if(ContactPhone1.getText().toString().length() != 0){
+//                            try {
+//                                contactDetailsModel.put("Name", ContactName1.getText().toString());
+//                                contactDetailsModel.put("Phone", ContactPhone1.getText().toString());
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//
+//                        }
+//                    }
+//
+//                    if(ContactName2.getText().toString().length() != 0){
+//                        if(!ContactPhone2.getText().toString().equals("")){
+//                            try {
+//                                UpdateRequestBody.put(ContactName2.getText().toString(), ContactPhone2.getText().toString());
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//
+//                        }
+//                    }
 
                     for (Map.Entry<String, String> set : updatedBody.entrySet()){
                         try {
