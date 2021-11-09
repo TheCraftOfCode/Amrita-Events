@@ -225,6 +225,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Item
                             }
 
                             MakingTheUpdateRequest(UpdateRequestBody, getAdapterPosition());
+                            alertDialog.dismiss();
                         }
                     });
 
