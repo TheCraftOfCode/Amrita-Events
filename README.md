@@ -2,6 +2,11 @@
 
 This is the amrita events android..
 
+<div id="login/register">
+  <img src="/images/login.png" alt="login"/>
+  <img src="/images/register.png" alt="register"/>
+</div>
+
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
