@@ -1,6 +1,6 @@
 # Amrita-Events
 
-This is the amrita events android..
+This is the amrita events android...
 
 <div id="login/register">
   <img src="/images/login.png" alt="login"/>
