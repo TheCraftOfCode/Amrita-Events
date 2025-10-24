@@ -7,6 +7,10 @@ This is the amrita events android...
   <img src="/images/register.png" alt="register"/>
 </div>
 
+
+### API Repository:
+[Node Amrita Events API](https://github.com/TheCraftOfCode/node-amrita-events-api)
+
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
